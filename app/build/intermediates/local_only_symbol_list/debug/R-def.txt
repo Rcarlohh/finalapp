@@ -1,0 +1,12 @@
+R_DEF: Internal format may change without notice
+local
+id btn_send
+id tv_heart_rate
+id tv_oxygen
+id tv_steps
+id tv_stress
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.FinalApp

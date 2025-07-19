@@ -1,10 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.FinalApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@android:color/black</item>
-        <item name="colorPrimaryVariant">@android:color/darker_gray</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSecondary">@android:color/holo_blue_light</item>
-        <item name="colorOnSecondary">@android:color/white</item>
-        <item name="android:windowBackground">@android:color/black</item>
+    <style name="Theme.FinalApp" parent="@android:style/Theme">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:colorPrimary">@android:color/holo_blue_dark</item>
+        <item name="android:colorAccent">@android:color/holo_blue_light</item>
     </style>
 </resources> 
