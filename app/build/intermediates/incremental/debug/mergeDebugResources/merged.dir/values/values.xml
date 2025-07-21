@@ -6,6 +6,11 @@
         <item>@color/circular_progress_layout_green</item>
         <item>@color/circular_progress_layout_blue</item>
     </array>
+    <array name="progress_spinner_sequence"><item>#FFF4B400</item>
+<item>#FFDB4437</item>
+<item>#FF4285F4</item>
+<item>#FF0F9D58</item>
+</array>
     <attr format="float" name="anchorAngleDegrees"/>
     <attr format="enum" name="anchorPosition">
         <enum name="start" value="0"/>
@@ -635,6 +640,9 @@
     </attr>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool name="action_choose_expand_selected">true</bool>
+    <bool name="action_choose_symmetrical_dimen">false</bool>
+    <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
     <bool name="mtrl_btn_textappearance_all_caps">true</bool>
     <color name="abc_decor_view_status_guard">#ff000000</color>
     <color name="abc_decor_view_status_guard_light">#ffffffff</color>
@@ -643,12 +651,18 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <color name="action_button_background">#4D000000</color>
+    <color name="ambient_mode_text">@color/primary_text_dark</color>
     <color name="androidx_core_ripple_material_light">#1f000000</color>
     <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
+    <color name="black">@android:color/black</color>
+    <color name="black_54p">#8A000000</color>
+    <color name="black_86p">#DE000000</color>
+    <color name="blue_a400">#2979FF</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -659,15 +673,31 @@
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="call_notification_answer_color">#1d873b</color>
     <color name="call_notification_decline_color">#d93025</color>
+    <color name="card_default_background">#E0E0E0</color>
     <color name="cardview_dark_background">#FF424242</color>
     <color name="cardview_light_background">#FFFFFFFF</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
+    <color name="circular_button_disabled">@color/grey</color>
+    <color name="circular_button_normal">#0288D1</color>
+    <color name="circular_button_pressed">#01579B</color>
     <color name="circular_progress_layout_background_color">#00000000</color>
     <color name="circular_progress_layout_blue">#FF2196F3</color>
     <color name="circular_progress_layout_green">#FF4CAF50</color>
     <color name="circular_progress_layout_red">#FFF44336</color>
     <color name="circular_progress_layout_yellow">#FFFFEB3B</color>
+    <color name="complicationDrawable_backgroundColor">#00000000</color>
+    <color name="complicationDrawable_borderColor">#80000000</color>
+    <color name="complicationDrawable_highlightColor">#4DFFFFFF</color>
+    <color name="complicationDrawable_iconColor">#FFFFFFFF</color>
+    <color name="complicationDrawable_rangedValuePrimaryColor">#FFFFFFFF</color>
+    <color name="complicationDrawable_rangedValueSecondaryColor">#80FFFFFF</color>
+    <color name="complicationDrawable_textColor">#FFFFFFFF</color>
+    <color name="complicationDrawable_titleColor">#80FFFFFF</color>
+    <color name="config_scrim_color">#80000000</color>
+    <color name="dark_blue">#1565C0</color>
+    <color name="dark_grey">#424242</color>
+    <color name="dark_red">#D32F2F</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_dark_default_color_background">#121212</color>
     <color name="design_dark_default_color_error">#CF6679</color>
@@ -703,16 +733,25 @@
     <color name="design_fab_stroke_top_inner_color">#1AFFFFFF</color>
     <color name="design_fab_stroke_top_outer_color">#2EFFFFFF</color>
     <color name="design_snackbar_background_color">#323232</color>
+    <color name="dialog_background">#414141</color>
+    <color name="dialog_shade_background">#606060</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="disabled_text_light">#E0E0E0</color>
+    <color name="dismiss_close">#FF5151</color>
+    <color name="dismiss_close_pressed">#B83120</color>
+    <color name="dismiss_overlay_bg">#80000000</color>
     <color name="error_color_material_dark">#ff7043</color>
     <color name="error_color_material_light">#ff5722</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+    <color name="green">#00C853</color>
+    <color name="grey">#757575</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
+    <color name="light_grey">#bdbdbd</color>
     <color name="m3_ref_palette_black">#ff000000</color>
     <color name="m3_ref_palette_error0">#ff000000</color>
     <color name="m3_ref_palette_error10">#ff410e0b</color>
@@ -952,26 +991,34 @@
     <color name="mtrl_textinput_hovered_box_stroke_color">#DE000000</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="orange">#FF6D3F</color>
+    <color name="preference_fallback_accent_color">#ff008577</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
     <color name="primary_material_light">@color/material_grey_100</color>
+    <color name="primary_text_dark">@color/white</color>
     <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="primary_text_light">@color/dark_grey</color>
+    <color name="red_a200">#FF5252</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
+    <color name="secondary_text_light">#9E9E9E</color>
+    <color name="semitransparent_grey">#66777777</color>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
+    <color name="white">@android:color/white</color>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -1053,12 +1100,33 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <item format="float" name="action_chooser_base_radius_percent" type="dimen">.25</item>
+    <item format="float" name="action_chooser_bounce_in_percent" type="dimen">.1</item>
+    <item format="float" name="action_chooser_icon_height_percent" type="dimen">.5</item>
+    <item format="float" name="action_chooser_max_radius_percent" type="dimen">.5</item>
+    <item format="float" name="action_chooser_min_drag_select_percent" type="dimen">.5</item>
+    <item format="float" name="action_chooser_min_swipe_select_percent" type="dimen">.25</item>
+    <dimen name="action_drawer_expand_icon_top_margin">-3dp</dimen>
+    <dimen name="action_drawer_item_bottom_padding">8dp</dimen>
+    <dimen name="action_drawer_item_icon_padding">7dp</dimen>
+    <dimen name="action_drawer_item_icon_right_margin">8dp</dimen>
+    <dimen name="action_drawer_item_icon_size">36dp</dimen>
+    <dimen name="action_drawer_item_text_size">14sp</dimen>
+    <dimen name="action_drawer_item_top_padding">8dp</dimen>
+    <dimen name="action_drawer_peek_top_padding">2dp</dimen>
+    <dimen name="action_drawer_peek_view_height">43dp</dimen>
     <dimen name="appcompat_dialog_background_inset">16dp</dimen>
+    <dimen name="blank_config_dash_gap">2dp</dimen>
+    <dimen name="blank_config_dash_width">2dp</dimen>
+    <dimen name="card_content_padding_rect_top">4dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
+    <dimen name="circular_button_elevation">1dp</dimen>
+    <dimen name="circular_button_elevation_pressed">6dp</dimen>
     <dimen name="circular_progress_layout_stroke_width">4dp</dimen>
     <dimen name="clock_face_margin_start">64dp</dimen>
+    <dimen name="close_button_diameter">104dp</dimen>
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
     <dimen name="compat_button_inset_vertical_material">6dp</dimen>
     <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
@@ -1066,12 +1134,20 @@
     <dimen name="compat_control_corner_material">2dp</dimen>
     <dimen name="compat_notification_large_icon_max_height">320dp</dimen>
     <dimen name="compat_notification_large_icon_max_width">320dp</dimen>
+    <dimen name="complicationDrawable_borderDashGap">1dp</dimen>
+    <dimen name="complicationDrawable_borderDashWidth">1dp</dimen>
+    <dimen name="complicationDrawable_borderRadius">65536dp</dimen>
+    <dimen name="complicationDrawable_borderWidth">1dp</dimen>
+    <dimen name="complicationDrawable_rangedValueRingWidth">2dp</dimen>
+    <dimen name="complicationDrawable_textSize">14sp</dimen>
+    <dimen name="complicationDrawable_titleSize">14sp</dimen>
+    <dimen name="config_margin">12dp</dimen>
     <dimen name="confirmation_overlay_image_bottom_margin">8dp</dimen>
-    <dimen name="confirmation_overlay_image_size">48dp</dimen>
+    <dimen name="confirmation_overlay_image_size">64dp</dimen>
     <dimen name="confirmation_overlay_text_bottom_margin">16dp</dimen>
     <item format="float" name="confirmation_overlay_text_letter_spacing" type="dimen">0.01</item>
     <dimen name="confirmation_overlay_text_line_height">20sp</dimen>
-    <dimen name="confirmation_overlay_text_size">16sp</dimen>
+    <dimen name="confirmation_overlay_text_size">14sp</dimen>
     <dimen name="def_drawer_elevation">10dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>
@@ -1121,8 +1197,21 @@
     <dimen name="design_tab_text_size">14sp</dimen>
     <dimen name="design_tab_text_size_2line">12sp</dimen>
     <dimen name="design_textinput_caption_translate_y">5dp</dimen>
+    <dimen name="diag_button_bottom_padding">10dp</dimen>
+    <dimen name="diag_button_bottom_padding_round">32dp</dimen>
+    <dimen name="diag_button_side_padding_right_round">22dp</dimen>
+    <dimen name="diag_content_bottom_padding">10dp</dimen>
+    <dimen name="diag_content_side_padding">16dp</dimen>
+    <dimen name="diag_content_side_padding_round">36dp</dimen>
+    <dimen name="diag_content_top_padding">10dp</dimen>
+    <dimen name="diag_content_top_padding_round">30dp</dimen>
+    <dimen name="diag_floating_height">16dp</dimen>
+    <dimen name="diag_shade_height_rect">90dp</dimen>
+    <dimen name="diag_shade_height_round">108dp</dimen>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <dimen name="dismiss_padding">16dp</dimen>
+    <dimen name="drawer_view_edge_size">38dp</dimen>
     <dimen name="fastscroll_default_thickness">8dp</dimen>
     <dimen name="fastscroll_margin">0dp</dimen>
     <dimen name="fastscroll_minimum_range">50dp</dimen>
@@ -1136,6 +1225,7 @@
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
+    <dimen name="list_default_padding">0dp</dimen>
     <dimen name="m3_alert_dialog_action_bottom_padding">14dp</dimen>
     <dimen name="m3_alert_dialog_action_top_padding">14dp</dimen>
     <dimen name="m3_alert_dialog_corner_size">28dp</dimen>
@@ -1731,6 +1821,10 @@
     <dimen name="mtrl_tooltip_minWidth">32dp</dimen>
     <dimen name="mtrl_tooltip_padding">12dp</dimen>
     <dimen name="mtrl_transition_shared_axis_slide_distance">30dp</dimen>
+    <dimen name="nav_drawer_single_page_circle_radius">24dp</dimen>
+    <dimen name="nav_drawer_single_page_icon_padding">6dp</dimen>
+    <dimen name="nav_drawer_single_page_icon_size">28dp</dimen>
+    <dimen name="nav_drawer_text_size">12sp</dimen>
     <dimen name="notification_action_icon_size">32dp</dimen>
     <dimen name="notification_action_text_size">13sp</dimen>
     <dimen name="notification_big_circle_margin">12dp</dimen>
@@ -1746,6 +1840,18 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="peek_view_bottom_padding">8dp</dimen>
+    <dimen name="peek_view_icon_size">22dp</dimen>
+    <dimen name="peek_view_top_padding">8dp</dimen>
+    <dimen name="preference_dropdown_padding_start">0dp</dimen>
+    <dimen name="preference_icon_minWidth">0dp</dimen>
+    <dimen name="preference_seekbar_padding_horizontal">0dp</dimen>
+    <dimen name="preference_seekbar_padding_vertical">15dp</dimen>
+    <dimen name="preference_seekbar_value_minWidth">36dp</dimen>
+    <dimen name="screen_percentage_05">0dp</dimen>
+    <dimen name="screen_percentage_10">0dp</dimen>
+    <dimen name="screen_percentage_12">0dp</dimen>
+    <dimen name="screen_percentage_15">0dp</dimen>
     <dimen name="tooltip_corner_radius">2dp</dimen>
     <dimen name="tooltip_horizontal_padding">16dp</dimen>
     <dimen name="tooltip_margin">8dp</dimen>
@@ -1754,6 +1860,8 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
+    <dimen name="wearable_drawer_view_elevation">12dp</dimen>
+    <dimen name="wrv_curve_default_x_offset">24dp</dimen>
     <dimen name="ws_action_drawer_expand_icon_top_margin">-3dp</dimen>
     <dimen name="ws_action_drawer_item_bottom_padding">8dp</dimen>
     <dimen name="ws_action_drawer_item_icon_padding">7dp</dimen>
@@ -1791,7 +1899,26 @@
     <item name="material_ic_keyboard_arrow_previous_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_left_black_24dp</item>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
+    <item name="action_drawer_item_first_item_top_padding" type="fraction">15%</item>
+    <item name="action_drawer_item_last_item_bottom_padding" type="fraction">15%</item>
+    <item name="action_drawer_item_left_padding" type="fraction">15%</item>
+    <item name="action_drawer_item_right_padding" type="fraction">10%</item>
+    <item name="confirmation_overlay_margin_above_text" type="fraction">5%</item>
+    <item name="confirmation_overlay_margin_side" type="fraction">4.167%</item>
     <item name="confirmation_overlay_text_inset_margin" type="fraction">2.8%</item>
+    <fraction name="nav_drawer_margin_2_items">20%</fraction>
+    <fraction name="nav_drawer_margin_3_items">16%</fraction>
+    <fraction name="nav_drawer_margin_4_items_horizontal">13%</fraction>
+    <fraction name="nav_drawer_margin_4_items_vertical">16.9%</fraction>
+    <fraction name="nav_drawer_margin_5_items_horizontal_middle_row">13%</fraction>
+    <fraction name="nav_drawer_margin_5_items_horizontal_outer_rows">27.4%</fraction>
+    <fraction name="nav_drawer_margin_5_items_vertical">16.9%</fraction>
+    <fraction name="nav_drawer_margin_6_items_horizontal">16%</fraction>
+    <fraction name="nav_drawer_margin_6_items_vertical">26.8%</fraction>
+    <fraction name="nav_drawer_margin_7_items_horizontal_middle_row">13%</fraction>
+    <fraction name="nav_drawer_margin_7_items_horizontal_outer_rows">27.4%</fraction>
+    <fraction name="nav_drawer_margin_7_items_vertical">16.9%</fraction>
+    <fraction name="nav_drawer_text_margin">13%</fraction>
     <item name="ws_action_drawer_item_first_item_top_padding" type="fraction">15%</item>
     <item name="ws_action_drawer_item_last_item_bottom_padding" type="fraction">15%</item>
     <item name="ws_action_drawer_item_left_padding" type="fraction">15%</item>
@@ -1905,12 +2032,20 @@
     <id name="view_tree_saved_state_registry_owner"/>
     <id name="view_tree_view_model_store_owner"/>
     <item name="visible_removing_fragment_view_tag" type="id"/>
+    <item name="wearable_support_navigation_drawer_view_pager" type="id"/>
+    <item name="wearable_support_overlay_confirmation" type="id"/>
     <item name="ws_navigation_drawer_view_pager" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
+    <integer name="action_choose_expand_full_duration">1000</integer>
+    <integer name="action_chooser_anim_duration">250</integer>
+    <integer name="action_chooser_bounce_delay">500</integer>
+    <integer name="action_chooser_confirmation_duration">500</integer>
     <integer name="app_bar_elevation_anim_duration">150</integer>
     <integer name="bottom_sheet_slide_duration">150</integer>
     <integer name="cancel_button_image_alpha">127</integer>
+    <integer name="complicationDrawable_borderStyle">1</integer>
+    <integer name="complicationDrawable_highlightDurationMs">300</integer>
     <integer name="config_tooltipAnimTime">150</integer>
     <integer name="design_snackbar_text_max_lines">2</integer>
     <integer name="design_tab_indicator_anim_duration_ms">300</integer>
@@ -1977,6 +2112,27 @@
     <item quantity="one"><ns2:g id="count">%d</ns2:g> new notification</item>
     <item quantity="other"><ns2:g id="count">%d</ns2:g> new notifications</item>
   </plurals>
+    <plurals name="time_difference_short_days" ns1:ignore="UnusedQuantity,MissingQuantity"><item quantity="one"><ns2:g id="number_of_days">%d</ns2:g>d</item>
+<item quantity="other"><ns2:g id="number_of_days">%d</ns2:g>d</item>
+</plurals>
+    <plurals name="time_difference_short_hours" ns1:ignore="UnusedQuantity,MissingQuantity"><item quantity="one"><ns2:g id="number_of_hours">%d</ns2:g>h</item>
+<item quantity="other"><ns2:g id="number_of_hours">%d</ns2:g>h</item>
+</plurals>
+    <plurals name="time_difference_short_minutes" ns1:ignore="UnusedQuantity,MissingQuantity"><item quantity="one"><ns2:g id="number_of_minutes">%d</ns2:g>m</item>
+<item quantity="other"><ns2:g id="number_of_minutes">%d</ns2:g>m</item>
+</plurals>
+    <plurals name="time_difference_words_days" ns1:ignore="UnusedQuantity,MissingQuantity"><item quantity="one"><ns2:g id="number_of_days">%d</ns2:g> day</item>
+<item quantity="other"><ns2:g id="number_of_days">%d</ns2:g> days</item>
+</plurals>
+    <plurals name="time_difference_words_hours" ns1:ignore="UnusedQuantity,MissingQuantity"><item quantity="one"><ns2:g id="number_of_hours">%d</ns2:g> hour</item>
+<item quantity="other"><ns2:g id="number_of_hours">%d</ns2:g> hours</item>
+</plurals>
+    <plurals name="time_difference_words_minutes" ns1:ignore="UnusedQuantity,MissingQuantity"><item quantity="one"><ns2:g id="number_of_minutes">%d</ns2:g> min</item>
+<item quantity="other"><ns2:g id="number_of_minutes">%d</ns2:g> mins</item>
+</plurals>
+    <string name="a11y_no_data">No data</string>
+    <string name="a11y_no_permission">No permission to access data</string>
+    <string name="a11y_template_range"><ns2:g example="654" id="value">%1$f</ns2:g> of <ns2:g example="10000" id="max">%2$f</ns2:g></string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>
@@ -2013,6 +2169,34 @@
     <string description="A description of an action that a user of an accessibility service can perform to expand a bottomsheet halfway to its full height. [CHAR LIMIT=25]" name="bottomsheet_action_expand_halfway">Expand halfway</string>
     <string description="An accessibility feedback when the bottom sheet drag handle is clicked [CHAR LIMIT=NONE]" name="bottomsheet_drag_handle_clicked">Drag handle double-tapped</string>
     <string description="The content description of bottom sheet drag handles [CHAR LIMIT=NONE]" name="bottomsheet_drag_handle_content_description">Drag handle</string>
+    <string name="buttons_rect_bottom_center">Bottom</string>
+    <string name="buttons_rect_bottom_left">Bottom left</string>
+    <string name="buttons_rect_bottom_right">Bottom right</string>
+    <string name="buttons_rect_left_bottom">Bottom, left side</string>
+    <string name="buttons_rect_left_center">Center left</string>
+    <string name="buttons_rect_left_top">Top, left side</string>
+    <string name="buttons_rect_right_bottom">Bottom, right side</string>
+    <string name="buttons_rect_right_center">Center right</string>
+    <string name="buttons_rect_right_top">Top, right side</string>
+    <string name="buttons_rect_top_center">Top</string>
+    <string name="buttons_rect_top_left">Top left</string>
+    <string name="buttons_rect_top_right">Top right</string>
+    <string name="buttons_round_bottom_center">Bottom</string>
+    <string name="buttons_round_bottom_left">Bottom left</string>
+    <string name="buttons_round_bottom_left_lower">Bottom left, lower</string>
+    <string name="buttons_round_bottom_left_upper">Bottom left, upper</string>
+    <string name="buttons_round_bottom_right">Bottom right</string>
+    <string name="buttons_round_bottom_right_lower">Bottom right, lower</string>
+    <string name="buttons_round_bottom_right_upper">Bottom right, upper</string>
+    <string name="buttons_round_center_left">Center left</string>
+    <string name="buttons_round_center_right">Center right</string>
+    <string name="buttons_round_top_center">Top</string>
+    <string name="buttons_round_top_left">Top left</string>
+    <string name="buttons_round_top_left_lower">Top left, lower</string>
+    <string name="buttons_round_top_left_upper">Top left, upper</string>
+    <string name="buttons_round_top_right">Top right</string>
+    <string name="buttons_round_top_right_lower">Top right, lower</string>
+    <string name="buttons_round_top_right_upper">Top right, upper</string>
     <string name="call_notification_answer_action">Answer</string>
     <string name="call_notification_answer_video_action">Video</string>
     <string name="call_notification_decline_action">Decline</string>
@@ -2024,16 +2208,24 @@
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="complicationDrawable_noDataText" translatable="false">--</string>
+    <string name="complicationDrawable_textTypeface">sans-serif-condensed</string>
+    <string name="complicationDrawable_titleTypeface">sans-serif-condensed</string>
     <string name="confirmation_overlay_a11y_description_fail">Failure</string>
     <string name="confirmation_overlay_a11y_description_phone">Opened on your phone</string>
     <string name="confirmation_overlay_a11y_description_success">Success</string>
+    <string name="copy">Copy</string>
+    <string name="dismiss_overlay_button_label">Quit</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
     <string name="error_icon_content_description">Error</string>
+    <string name="expand_button_title">Advanced</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="generic_cancel">Cancel</string>
+    <string name="generic_yes">Yes</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
     <string name="item_view_role_description">Tab</string>
@@ -2142,11 +2334,16 @@
     <string name="mtrl_switch_track_path" translatable="false">M0,16 A16,16 0 0,1 16,0 H36 A16,16 0 0,1 36,32 H16 A16,16 0 0,1 0,16</string>
     <string description="Button text to indicate that the widget will ignore the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_cancel">Cancel</string>
     <string description="Button text to indicate that the widget will save the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_confirm">OK</string>
+    <string name="navigation_drawer_content_description">Navigation drawer</string>
+    <string name="not_set">Not set</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="preference_copied">
+        \"<ns2:g example="Version 1.1" id="summary">%1$s</ns2:g>\" copied to clipboard.
+    </string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior
@@ -2156,6 +2353,12 @@
     <string description="Title of the side sheet&apos;s accessibility pane that is spoken by TalkBack when the side sheet appears on screen. [CHAR_LIMIT=NONE]" name="side_sheet_accessibility_pane_title">Side Sheet</string>
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="summary_collapsed_preference_list"><ns2:g id="current_items">%1$s</ns2:g>, <ns2:g id="added_items">%2$s</ns2:g></string>
+    <string name="time_difference_now">Now</string>
+    <string name="time_difference_short_days_and_hours" ns1:ignore="ByteOrderMark"><ns2:g example="3d" id="short_days">%1$s</ns2:g>\u0020<ns2:g example="13h" id="short_hours">%2$s</ns2:g></string>
+    <string name="time_difference_short_hours_and_minutes" ns1:ignore="ByteOrderMark"><ns2:g example="13h" id="short_hours">%1$s</ns2:g>\u0020<ns2:g example="58m" id="short_minutes">%2$s</ns2:g></string>
+    <string name="v7_preference_off">OFF</string>
+    <string name="v7_preference_on">ON</string>
     <string name="ws_action_drawer_content_description">Action drawer</string>
     <string name="ws_navigation_drawer_content_description">Navigation drawer</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -5527,10 +5730,10 @@
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
     <style name="ConfirmationActivity" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
-        <item name="android:windowEnterAnimation">@null</item>
-        <item name="android:activityOpenEnterAnimation">@null</item>
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
+<item name="android:windowEnterAnimation">@null</item>
+<item name="android:activityOpenEnterAnimation">@null</item>
+<item name="android:windowAnimationStyle">@null</item>
+</style>
     <style name="MaterialAlertDialog.Material3" parent="MaterialAlertDialog.MaterialComponents">
     <item name="enforceMaterialTheme">true</item>
     <item name="android:layout">@layout/m3_alert_dialog</item>
@@ -5787,6 +5990,170 @@
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Holo.Spinner"/>
+    <style name="Preference">
+        <item name="android:layout">@layout/preference</item>
+    </style>
+    <style name="Preference.Category">
+        <item name="android:layout">@layout/preference_category</item>
+        
+        <item name="android:shouldDisableView">false</item>
+        <item name="android:selectable">false</item>
+    </style>
+    <style name="Preference.Category.Material">
+        <item name="android:layout">@layout/preference_category_material</item>
+        <item name="allowDividerAbove">true</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.CheckBoxPreference">
+        <item name="android:widgetLayout">@layout/preference_widget_checkbox</item>
+    </style>
+    <style name="Preference.CheckBoxPreference.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.DialogPreference">
+        <item name="android:positiveButtonText">@android:string/ok</item>
+        <item name="android:negativeButtonText">@android:string/cancel</item>
+    </style>
+    <style name="Preference.DialogPreference.EditTextPreference">
+        <item name="android:dialogLayout">@layout/preference_dialog_edittext</item>
+    </style>
+    <style name="Preference.DialogPreference.EditTextPreference.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="singleLineTitle">false</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.DialogPreference.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.DropDown">
+        <item name="android:layout">@layout/preference_dropdown</item>
+    </style>
+    <style name="Preference.DropDown.Material">
+        <item name="android:layout">@layout/preference_dropdown_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.Information">
+        <item name="android:layout">@layout/preference_information</item>
+        <item name="android:enabled">false</item>
+        <item name="android:shouldDisableView">false</item>
+    </style>
+    <style name="Preference.Information.Material">
+        <item name="android:layout">@layout/preference_information_material</item>
+        <item name="android:enabled">false</item>
+        <item name="android:shouldDisableView">false</item>
+    </style>
+    <style name="Preference.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="singleLineTitle">false</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.PreferenceScreen">
+    </style>
+    <style name="Preference.PreferenceScreen.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.SeekBarPreference">
+        <item name="android:layout">@layout/preference_widget_seekbar</item>
+        <item name="adjustable">true</item>
+        <item name="showSeekBarValue">true</item>
+        <item name="updatesContinuously">false</item>
+    </style>
+    <style name="Preference.SeekBarPreference.Material">
+        <item name="android:layout">@layout/preference_widget_seekbar_material</item>
+        <item name="adjustable">true</item>
+        <item name="showSeekBarValue">false</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.SwitchPreference">
+        <item name="android:widgetLayout">@layout/preference_widget_switch</item>
+        <item name="android:switchTextOn">@string/v7_preference_on</item>
+        <item name="android:switchTextOff">@string/v7_preference_off</item>
+    </style>
+    <style name="Preference.SwitchPreference.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="singleLineTitle">false</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="Preference.SwitchPreferenceCompat">
+        <item name="android:widgetLayout">@layout/preference_widget_switch_compat</item>
+        <item name="android:switchTextOn">@string/v7_preference_on</item>
+        <item name="android:switchTextOff">@string/v7_preference_off</item>
+    </style>
+    <style name="Preference.SwitchPreferenceCompat.Material">
+        <item name="android:layout">@layout/preference_material</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="iconSpaceReserved">@bool/config_materialPreferenceIconSpaceReserved</item>
+    </style>
+    <style name="PreferenceCategoryTitleTextStyle">
+        <item name="android:textAppearance">?attr/preferenceCategoryTitleTextAppearance</item>
+        <item name="android:textColor">@color/preference_fallback_accent_color</item>
+    </style>
+    <style name="PreferenceFragment">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:divider">?android:attr/listDivider</item>
+    </style>
+    <style name="PreferenceFragment.Material">
+        <item name="android:divider">@drawable/preference_list_divider_material</item>
+        <item name="allowDividerAfterLastItem">false</item>
+    </style>
+    <style name="PreferenceFragmentList">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+    <style name="PreferenceFragmentList.Material">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+    <style name="PreferenceSummaryTextStyle">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+    <style name="PreferenceThemeOverlay">
+        <item name="android:scrollbars">vertical</item>
+        <item name="checkBoxPreferenceStyle">@style/Preference.CheckBoxPreference.Material</item>
+        <item name="dialogPreferenceStyle">@style/Preference.DialogPreference.Material</item>
+        <item name="dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
+        <item name="editTextPreferenceStyle">@style/Preference.DialogPreference.EditTextPreference.Material</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Category.Material</item>
+        <item name="preferenceFragmentCompatStyle">@style/PreferenceFragment.Material</item>
+        <item name="preferenceFragmentListStyle">@style/PreferenceFragmentList.Material</item>
+        <item name="preferenceFragmentStyle">@style/PreferenceFragment.Material</item>
+        <item name="preferenceScreenStyle">@style/Preference.PreferenceScreen.Material</item>
+        <item name="preferenceStyle">@style/Preference.Material</item>
+        <item name="seekBarPreferenceStyle">@style/Preference.SeekBarPreference.Material</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.SwitchPreferenceCompat.Material</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference.Material</item>
+        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.AppCompat.Body2</item>
+    </style>
+    <style name="PreferenceThemeOverlay.v14"/>
+    <style name="PreferenceThemeOverlay.v14.Material"/>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
@@ -5983,6 +6350,25 @@
     <item name="cornerSizeBottomLeft">@dimen/mtrl_textinput_box_corner_radius_small</item>
     <item name="cornerSizeBottomRight">@dimen/mtrl_textinput_box_corner_radius_small</item>
   </style>
+    <style name="SinglePageNavDrawerIconStyle">
+<item name="android:layout_height">@dimen/nav_drawer_single_page_icon_size</item>
+<item name="android:layout_width">@dimen/nav_drawer_single_page_icon_size</item>
+<item name="android:padding">@dimen/nav_drawer_single_page_icon_padding</item>
+<item name="android:clipToPadding">false</item>
+<item name="circle_radius">@dimen/nav_drawer_single_page_circle_radius</item>
+<item name="circle_color">#33ffffff</item>
+</style>
+    <style name="SinglePageNavDrawerTextStyle">
+<item name="android:layout_height">wrap_content</item>
+<item name="android:layout_width">match_parent</item>
+<item name="android:fontFamily">sans-serif-condensed</item>
+<item name="android:textSize">@dimen/nav_drawer_text_size</item>
+<item name="android:gravity">center</item>
+<item name="android:maxLines">2</item>
+<item name="layout_marginTopPercent">@fraction/nav_drawer_text_margin</item>
+<item name="layout_marginStartPercent">@fraction/nav_drawer_text_margin</item>
+<item name="layout_marginEndPercent">@fraction/nav_drawer_text_margin</item>
+</style>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
     <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
@@ -9163,14 +9549,40 @@
     <style name="WsWearableActionDrawerTitleText" parent="android:TextAppearance.Material.Subhead">
         <item name="android:alpha">0.7</item>
     </style>
+    <declare-styleable name="AcceptDenyDialogPreference">
+<attr format="string" name="dialogTitle"/>
+
+<attr format="string" name="dialogMessage"/>
+
+<attr format="reference" name="dialogIcon"/>
+
+<attr format="boolean" name="showPositiveDialogButton"/>
+
+<attr format="boolean" name="showNegativeDialogButton"/>
+</declare-styleable>
+    <declare-styleable name="AcceptDenySwitchPreference">
+<attr name="dialogTitle"/>
+
+<attr name="dialogMessage"/>
+
+<attr name="dialogIcon"/>
+
+<attr name="showPositiveDialogButton"/>
+
+<attr name="showNegativeDialogButton"/>
+
+<attr format="boolean" name="showDialogWhenTurningOn"/>
+
+<attr format="boolean" name="showDialogWhenTurningOff"/>
+</declare-styleable>
     <declare-styleable name="ActionBar">
         
         <attr name="navigationMode">
-            
+            <!-- Normal static title text -->
             <enum name="normal" value="0"/>
-            
+            <!-- The action bar will use a selection list for navigation. -->
             <enum name="listMode" value="1"/>
-            
+            <!-- The action bar will use a series of horizontal tabs for navigation. -->
             <enum name="tabMode" value="2"/>
         </attr>
         
@@ -9241,6 +9653,29 @@
     <declare-styleable name="ActionBarLayout">
         <attr name="android:layout_gravity"/>
     </declare-styleable>
+    <declare-styleable name="ActionLabel">
+<attr name="android:textColor"/>
+
+<attr name="android:maxLines"/>
+
+<attr name="android:fontFamily"/>
+
+<attr name="android:typeface"/>
+
+<attr name="android:textStyle"/>
+
+<attr name="android:text"/>
+
+<attr name="android:gravity"/>
+
+<attr name="android:lineSpacingExtra"/>
+
+<attr name="android:lineSpacingMultiplier"/>
+
+<attr format="dimension" name="minTextSize"/>
+
+<attr format="dimension" name="maxTextSize"/>
+</declare-styleable>
     <declare-styleable name="ActionMenuItemView">
         <attr name="android:minWidth"/>
     </declare-styleable>
@@ -9261,6 +9696,43 @@
         
         <attr format="reference" name="closeItemLayout"/>
     </declare-styleable>
+    <declare-styleable name="ActionPage">
+<attr name="android:src"/>
+
+<attr name="android:color"/>
+
+<attr name="buttonRippleColor"/>
+
+<attr name="android:elevation"/>
+
+<attr name="android:stateListAnimator"/>
+
+<attr name="pressedButtonTranslationZ"/>
+
+<attr name="android:textColor"/>
+
+<attr name="android:maxLines"/>
+
+<attr name="android:fontFamily"/>
+
+<attr name="android:typeface"/>
+
+<attr name="android:textStyle"/>
+
+<attr name="android:text"/>
+
+<attr name="maxTextSize"/>
+
+<attr name="minTextSize"/>
+
+<attr name="android:gravity"/>
+
+<attr name="imageScaleMode"/>
+
+<attr name="android:lineSpacingExtra"/>
+
+<attr name="android:lineSpacingMultiplier"/>
+</declare-styleable>
     <declare-styleable name="ActivityChooserView">
         
         <attr format="string" name="initialActivityCount"/>
@@ -9338,32 +9810,45 @@
   </declare-styleable>
     <declare-styleable name="AppBarLayout_Layout">
     <attr name="layout_scrollFlags">
-      
+      <!-- Disable scrolling on the view. This flag should not be combined with any of the other
+           scroll flags. -->
       <flag name="noScroll" value="0x0"/>
 
-      
+      <!-- The view will be scroll in direct relation to scroll events. This flag needs to be
+           set for any of the other flags to take effect. If any sibling views
+           before this one do not have this flag, then this value has no effect. -->
       <flag name="scroll" value="0x1"/>
 
-      
+      <!-- When exiting (scrolling off screen) the view will be scrolled until it is
+           'collapsed'. The collapsed height is defined by the view's minimum height. -->
       <flag name="exitUntilCollapsed" value="0x2"/>
 
-      
+      <!-- When entering (scrolling on screen) the view will scroll on any downwards
+           scroll event, regardless of whether the scrolling view is also scrolling. This
+           is commonly referred to as the 'quick return' pattern. -->
       <flag name="enterAlways" value="0x4"/>
 
-      
+      <!-- An additional flag for 'enterAlways' which modifies the returning view to
+           only initially scroll back to it's collapsed height. Once the scrolling view has
+           reached the end of it's scroll range, the remainder of this view will be scrolled
+           into view. -->
       <flag name="enterAlwaysCollapsed" value="0x8"/>
 
-      
+      <!-- Upon a scroll ending, if the view is only partially visible then it will be
+           snapped and scrolled to it's closest edge. -->
       <flag name="snap" value="0x10"/>
 
-      
+      <!-- An additional flag to be used with 'snap'. If set, the view will be snapped to its
+           top and bottom margins, as opposed to the edges of the view itself. -->
       <flag name="snapMargins" value="0x20"/>
     </attr>
 
     <attr format="enum" name="layout_scrollEffect">
-      
+      <!-- No effect will be applied to this child when its parent
+           AppBarLayout's offset changes.-->
       <enum name="none" value="0"/>
-      
+      <!-- This view will be compressed (masked and parallaxed) when it reaches
+           the top of the screen and continues to scroll out of view.-->
       <enum name="compress" value="1"/>
     </attr>
 
@@ -9383,17 +9868,22 @@
 
         
         <attr name="tintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -9405,17 +9895,22 @@
         <attr format="color" name="tickMarkTint"/>
         
         <attr name="tickMarkTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -9436,9 +9931,10 @@
         <attr name="android:textAppearance"/>
         
         <attr format="enum" name="autoSizeTextType">
-            
+            <!-- No auto-sizing (default). -->
             <enum name="none" value="0"/>
-            
+            <!-- Uniform horizontal and vertical text size scaling to fit within the
+            container. -->
             <enum name="uniform" value="1"/>
         </attr>
         
@@ -9470,17 +9966,22 @@
         <attr format="color" name="drawableTint"/>
         
         <attr name="drawableTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
         
@@ -9863,6 +10364,11 @@
         </attr>
         <attr format="float" name="layout_weight"/>
     </declare-styleable>
+    <declare-styleable name="BackgroundStyle">
+        <attr name="android:selectableItemBackground"/>
+        
+        <attr name="selectableItemBackground"/>
+    </declare-styleable>
     <declare-styleable name="Badge">
     
     <attr format="dimension" name="badgeRadius"/>
@@ -9883,13 +10389,13 @@
     <attr format="integer" name="maxCharacterCount"/>
     <attr format="integer" name="number"/>
     <attr name="badgeGravity">
-      
+      <!-- Gravity.TOP | Gravity.END -->
       <enum name="TOP_END" value="8388661"/>
-      
+      <!-- Gravity.TOP | Gravity.START -->
       <enum name="TOP_START" value="8388659"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.END -->
       <enum name="BOTTOM_END" value="8388693"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.START -->
       <enum name="BOTTOM_START" value="8388691"/>
     </attr>
     
@@ -9905,9 +10411,11 @@
 
     
     <attr name="offsetAlignmentMode">
-      
+      <!-- The offsets begin at the edge of the anchor. -->
       <enum name="edge" value="0"/>
-      
+      <!-- Follows the legacy offset alignment behavior. The horizontal offset begins at a variable
+           permanent inset from the edge of the anchor, and the vertical offset begins at the center
+           of the badge aligned with the edge of the anchor. -->
       <enum name="legacy" value="1"/>
     </attr>
 
@@ -9933,20 +10441,32 @@
     <attr name="trackColor"/>
     
     <attr name="showAnimationBehavior">
-      
+      <!-- No animation used; appears immediately. -->
       <enum name="none" value="0"/>
-      
+      <!--
+        Expands from the bottom edge to the top edge for the linear type;
+        expands from the inner edge to the outer edge for the circular type.
+      -->
       <enum name="outward" value="1"/>
-      
+      <!--
+        Expands from the top edge to the bottom edge for the linear type;
+        expands from the outer edge to the inner edge for the circular type.
+      -->
       <enum name="inward" value="2"/>
     </attr>
     
     <attr name="hideAnimationBehavior">
-      
+      <!-- No animation used; disappears immediately. -->
       <enum name="none" value="0"/>
-      
+      <!--
+        Collapses from the bottom edge to the top edge for the linear type;
+        collapses from the inner edge to the outer edge for the circular type.
+      -->
       <enum name="outward" value="1"/>
-      
+      <!--
+        Collapses from the top edge to the bottom edge for the linear type;
+        collapses from the outer edge to the inner edge for the circular type.
+      -->
       <enum name="inward" value="2"/>
     </attr>
     
@@ -9963,23 +10483,23 @@
     <attr name="elevation"/>
     
     <attr name="fabAlignmentMode">
-      
+      <!-- Mode that aligns the fab to the center. -->
       <enum name="center" value="0"/>
-      
+      <!-- Mode that aligns the fab to the end. -->
       <enum name="end" value="1"/>
     </attr>
     
     <attr name="fabAnchorMode">
-      
+      <!-- Mode that anchors the fab embedded inside the BottomAppBar. -->
       <enum name="embed" value="0"/>
-      
+      <!-- Mode that anchors the fab to be cradled within the top edge of the BottomAppBar. -->
       <enum name="cradle" value="1"/>
     </attr>
     
     <attr name="fabAnimationMode">
-      
+      <!-- Mode that scales the fab down to a point, moves it, then scales the fab back to its normal size. -->
       <enum name="scale" value="0"/>
-      
+      <!-- Mode that slides the fab from one alignment mode to the next. -->
       <enum name="slide" value="1"/>
     </attr>
     
@@ -10004,9 +10524,10 @@
     <attr name="paddingRightSystemWindowInsets"/>
     
     <attr name="menuAlignmentMode">
-      
+      <!-- Mode that aligns the menu automatically to avoid the FAB. Menu will be aligned at the end
+           when the FAB is center aligned, and start when the FAB is end aligned. -->
       <enum name="auto" value="0"/>
-      
+      <!-- Mode that aligns the menu to the start. -->
       <enum name="start" value="1"/>
     </attr>
   </declare-styleable>
@@ -10021,7 +10542,7 @@
     <declare-styleable name="BottomSheetBehavior_Layout">
     
     <attr format="dimension" name="behavior_peekHeight">
-      
+      <!-- Peek at the 16:9 ratio keyline of its parent -->
       <enum name="auto" value="-1"/>
     </attr>
     
@@ -10046,17 +10567,19 @@
     <attr name="backgroundTint"/>
     
     <attr name="behavior_saveFlags">
-      
+      <!-- This flag will preserve the peekHeight on configuration change. -->
       <flag name="peekHeight" value="0x1"/>
-      
+      <!-- This flag will preserve the fitToContents boolean value on configuration change. -->
       <flag name="fitToContents" value="0x2"/>
-      
+      <!-- This flag will preserve the hideable boolean value on configuration change. -->
       <flag name="hideable" value="0x4"/>
-      
+      <!-- This flag will preserve the skipCollapsed boolean value on configuration change. -->
       <flag name="skipCollapsed" value="0x8"/>
-      
+      <!-- This flag will preserve the all the aforementioned values on configuration change. -->
       <flag name="all" value="-1"/>
-      
+      <!-- This flag will not preserve the aforementioned values on configuration change. The only
+           value preserved will be the positional state, e.g. collapsed, hidden, expanded, etc.
+           This is the default behavior. -->
       <flag name="none" value="0"/>
     </attr>
     
@@ -10074,9 +10597,7 @@
     <attr name="android:maxHeight"/>
 
   </declare-styleable>
-    <declare-styleable name="BoxInsetLayout_Layout">
-        
-        <attr name="boxedEdges">
+    <declare-styleable name="BoxInsetLayout_Layout"><attr name="boxedEdges">
             
             <flag name="none" value="0x00"/>
             
@@ -10089,9 +10610,7 @@
             <flag name="bottom" value="0x08"/>
             
             <flag name="all" value="0x0F"/>
-        </attr>
-        
-        <attr name="layout_boxedEdges">
+        </attr><attr name="layout_boxedEdges">
             
             <flag name="none" value="0x00"/>
             
@@ -10104,8 +10623,13 @@
             <flag name="bottom" value="0x08"/>
             
             <flag name="all" value="0x0F"/>
-        </attr>
-    </declare-styleable>
+        </attr><attr name="layout_box">
+<flag name="left" value="0x01"/>
+<flag name="top" value="0x02"/>
+<flag name="right" value="0x04"/>
+<flag name="bottom" value="0x08"/>
+<flag name="all" value="0x0F"/>
+</attr></declare-styleable>
     <declare-styleable name="ButtonBarLayout">
         
         <attr format="boolean" name="allowStacking"/>
@@ -10162,6 +10686,17 @@
             <enum name="gone" value="8"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="CheckBoxPreference">
+        
+        <attr format="string" name="summaryOn"/>
+        <attr name="android:summaryOn"/>
+        
+        <attr format="string" name="summaryOff"/>
+        <attr name="android:summaryOff"/>
+        
+        <attr format="boolean" name="disableDependentsState"/>
+        <attr name="android:disableDependentsState"/>
+    </declare-styleable>
     <declare-styleable name="CheckedTextView">
         <attr name="android:checkMark"/>
         
@@ -10171,17 +10706,22 @@
 
         
         <attr name="checkMarkTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -10314,45 +10854,50 @@
     <attr format="reference" name="checkedChip"/>
 
   </declare-styleable>
-    <declare-styleable name="CircledImageView">
-        <attr name="android:src"/>
-        
-        <attr format="color" name="background_color"/>
-        
-        <attr format="dimension" name="background_radius"/>
-        
-        <attr format="dimension" name="background_radius_pressed"/>
-        
-        <attr format="dimension" name="background_border_width"/>
-        
-        <attr format="color" name="background_border_color"/>
-        
-        <attr format="enum" name="background_border_cap">
+    <declare-styleable name="CircledImageView"><attr name="android:src"/><attr format="color" name="background_color"/><attr format="dimension" name="background_radius"/><attr format="dimension" name="background_radius_pressed"/><attr format="dimension" name="background_border_width"/><attr format="color" name="background_border_color"/><attr format="enum" name="background_border_cap">
             <enum name="butt" value="0"/>
             <enum name="round" value="1"/>
             <enum name="square" value="2"/>
-        </attr>
-        
-        <attr format="dimension" name="img_padding"/>
-        
-        <attr format="dimension" name="background_shadow_width"/>
-        
-        <attr format="dimension" name="img_circle_percentage"/>
-        
-        <attr format="dimension" name="img_horizontal_offset_percentage"/>
-        
-        <attr format="color" name="img_tint"/>
-        
-        <attr format="fraction" name="background_radius_percent"/>
-        
-        <attr format="fraction" name="background_radius_pressed_percent"/>
-        
-        <attr format="enum" name="clip_dimen">
+        </attr><attr format="dimension" name="img_padding"/><attr format="dimension" name="background_shadow_width"/><attr format="dimension" name="img_circle_percentage"/><attr format="dimension" name="img_horizontal_offset_percentage"/><attr format="color" name="img_tint"/><attr format="fraction" name="background_radius_percent"/><attr format="fraction" name="background_radius_pressed_percent"/><attr format="enum" name="clip_dimen">
             <enum name="none" value="0"/>
             <enum name="height" value="1"/>
             <enum name="width" value="2"/>
-        </attr>
-    </declare-styleable>
+        </attr><attr format="color" name="circle_color"/><attr format="dimension" name="circle_radius"/><attr format="dimension" name="circle_radius_pressed"/><attr format="dimension" name="circle_border_width"/><attr format="color" name="circle_border_color"/><attr name="circle_border_cap">
+<enum name="butt" value="0"/>
+
+<enum name="round" value="1"/>
+
+<enum name="square" value="2"/>
+
+</attr><attr format="dimension" name="circle_padding"/><attr format="dimension" name="shadow_width"/><attr format="dimension" name="image_circle_percentage"/><attr format="dimension" name="image_horizontal_offcenter_percentage"/><attr format="color" name="image_tint"/><attr format="fraction" name="circle_radius_percent"/><attr format="fraction" name="circle_radius_pressed_percent"/><attr name="square_dimen">
+<enum name="none" value="0"/>
+
+<enum name="height" value="1"/>
+
+<enum name="width" value="2"/>
+
+</attr></declare-styleable>
+    <declare-styleable name="CircularButton">
+<attr name="android:src"/>
+<attr name="imageScaleMode">
+<enum name="fit" value="0"/>
+
+<enum name="center" value="1"/>
+
+</attr>
+
+<attr name="android:color"/>
+
+<attr name="android:clickable"/>
+
+<attr format="color|reference" name="buttonRippleColor"/>
+
+<attr name="android:elevation"/>
+
+<attr name="android:stateListAnimator"/>
+
+<attr format="dimension" name="pressedButtonTranslationZ"/>
+</declare-styleable>
     <declare-styleable name="CircularProgressIndicator">
     
     <attr format="dimension" name="indicatorSize"/>
@@ -10360,9 +10905,17 @@
     <attr format="dimension" name="indicatorInset"/>
     
     <attr name="indicatorDirectionCircular">
-      
+      <!--
+        In the indeterminate mode, the spinner will spin clockwise; in the
+        determinate mode, the indicator will progress from the top (12 o'clock)
+        clockwise.
+      -->
       <enum name="clockwise" value="0"/>
-      
+      <!--
+        In the indeterminate mode, the spinner will spin counter-clockwise; in
+        the determinate mode, the indicator will progress from the top (12
+        o'clock) counter-clockwise.
+      -->
       <enum name="counterclockwise" value="1"/>
     </attr>
   </declare-styleable>
@@ -10429,49 +10982,49 @@
 
     
     <attr name="collapsedTitleGravity">
-      
+      <!-- Push title to the top of its container, not changing its size. -->
       <flag name="top" value="0x30"/>
-      
+      <!-- Push title to the bottom of its container, not changing its size. -->
       <flag name="bottom" value="0x50"/>
-      
+      <!-- Push title to the left of its container, not changing its size. -->
       <flag name="left" value="0x03"/>
-      
+      <!-- Push title to the right of its container, not changing its size. -->
       <flag name="right" value="0x05"/>
-      
+      <!-- Place title in the vertical center of its container, not changing its size. -->
       <flag name="center_vertical" value="0x10"/>
-      
+      <!-- Grow the vertical size of the title if needed so it completely fills its container. -->
       <flag name="fill_vertical" value="0x70"/>
-      
+      <!-- Place title in the horizontal center of its container, not changing its size. -->
       <flag name="center_horizontal" value="0x01"/>
-      
+      <!-- Place the title in the center of its container in both the vertical and horizontal axis, not changing its size. -->
       <flag name="center" value="0x11"/>
-      
+      <!-- Push title to the beginning of its container, not changing its size. -->
       <flag name="start" value="0x00800003"/>
-      
+      <!-- Push title to the end of its container, not changing its size. -->
       <flag name="end" value="0x00800005"/>
     </attr>
 
     
     <attr name="expandedTitleGravity">
-      
+      <!-- Push title to the top of its container, not changing its size. -->
       <flag name="top" value="0x30"/>
-      
+      <!-- Push title to the bottom of its container, not changing its size. -->
       <flag name="bottom" value="0x50"/>
-      
+      <!-- Push title to the left of its container, not changing its size. -->
       <flag name="left" value="0x03"/>
-      
+      <!-- Push title to the right of its container, not changing its size. -->
       <flag name="right" value="0x05"/>
-      
+      <!-- Place title in the vertical center of its container, not changing its size. -->
       <flag name="center_vertical" value="0x10"/>
-      
+      <!-- Grow the vertical size of the title if needed so it completely fills its container. -->
       <flag name="fill_vertical" value="0x70"/>
-      
+      <!-- Place title in the horizontal center of its container, not changing its size. -->
       <flag name="center_horizontal" value="0x01"/>
-      
+      <!-- Place the title in the center of its container in both the vertical and horizontal axis, not changing its size. -->
       <flag name="center" value="0x11"/>
-      
+      <!-- Push title to the beginning of its container, not changing its size. -->
       <flag name="start" value="0x00800003"/>
-      
+      <!-- Push title to the end of its container, not changing its size. -->
       <flag name="end" value="0x00800005"/>
     </attr>
 
@@ -10481,9 +11034,9 @@
     <attr name="title"/>
     
     <attr name="titleCollapseMode">
-      
+      <!-- The expanded title will continuously scale and translate to its final collapsed position. -->
       <enum name="scale" value="0"/>
-      
+      <!-- The expanded title will fade out and translate, and the collapsed title will fade in. -->
       <enum name="fade" value="1"/>
     </attr>
     
@@ -10498,11 +11051,12 @@
   </declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout_Layout">
     <attr name="layout_collapseMode">
-      
+      <!-- The view will act as normal with no collapsing behavior. -->
       <enum name="none" value="0"/>
-      
+      <!-- The view will pin in place. -->
       <enum name="pin" value="1"/>
-      
+      <!-- The view will scroll in a parallax fashion. See the
+           layout_collapseParallaxMultiplier attribute to change the multiplier. -->
       <enum name="parallax" value="2"/>
     </attr>
 
@@ -10519,6 +11073,53 @@
         <attr format="float" name="lStar"/>
         <attr name="android:lStar"/>
     </declare-styleable>
+    <declare-styleable name="ComplicationDrawable">
+<attr format="color" name="backgroundColor"/>
+
+<attr format="reference" name="backgroundDrawable"/>
+
+<attr format="color" name="textColor"/>
+
+<attr format="color" name="titleColor"/>
+
+<attr format="string" name="textTypeface"/>
+
+<attr format="string" name="titleTypeface"/>
+
+<attr format="dimension" name="textSize"/>
+
+<attr format="dimension" name="titleSize"/>
+
+<attr format="color" name="iconColor"/>
+
+<attr format="color" name="borderColor"/>
+
+<attr format="dimension" name="borderRadius"/>
+<attr name="borderStyle">
+<enum name="none" value="0"/>
+
+<enum name="solid" value="1"/>
+
+<enum name="dashed" value="2"/>
+
+</attr>
+
+<attr format="dimension" name="borderDashWidth"/>
+
+<attr format="dimension" name="borderDashGap"/>
+
+<attr format="dimension" name="borderWidth"/>
+
+<attr format="dimension" name="rangedValueRingWidth"/>
+
+<attr format="color" name="rangedValuePrimaryColor"/>
+
+<attr format="color" name="rangedValueSecondaryColor"/>
+
+<attr format="boolean" name="rangedValueProgressHidden"/>
+
+<attr format="color" name="highlightColor"/>
+</declare-styleable>
     <declare-styleable name="CompoundButton">
         <attr name="android:button"/>
         
@@ -10528,17 +11129,22 @@
 
         
         <attr name="buttonTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -11156,70 +11762,76 @@
 
         
         <attr name="layout_anchorGravity">
-            
+            <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50"/>
-            
+            <!-- Push object to the left of its container, not changing its size. -->
             <flag name="left" value="0x03"/>
-            
+            <!-- Push object to the right of its container, not changing its size. -->
             <flag name="right" value="0x05"/>
-            
+            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10"/>
-            
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill_vertical" value="0x70"/>
-            
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
             <flag name="center_horizontal" value="0x01"/>
-            
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
             <flag name="fill_horizontal" value="0x07"/>
-            
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
             <flag name="center" value="0x11"/>
-            
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill" value="0x77"/>
-            
+            <!-- Additional option that can be set to have the top and/or bottom edges of
+                 the child clipped to its container's bounds.
+                 The clip will be based on the vertical gravity: a top gravity will clip the bottom
+                 edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
             <flag name="clip_vertical" value="0x80"/>
-            
+            <!-- Additional option that can be set to have the left and/or right edges of
+                 the child clipped to its container's bounds.
+                 The clip will be based on the horizontal gravity: a left gravity will clip the right
+                 edge, a right gravity will clip the left edge, and neither will clip both edges. -->
             <flag name="clip_horizontal" value="0x08"/>
-            
+            <!-- Push object to the beginning of its container, not changing its size. -->
             <flag name="start" value="0x00800003"/>
-            
+            <!-- Push object to the end of its container, not changing its size. -->
             <flag name="end" value="0x00800005"/>
         </attr>
 
         
         <attr format="enum" name="layout_insetEdge">
-            
+            <!-- Don't inset. -->
             <enum name="none" value="0x0"/>
-            
+            <!-- Inset the top edge. -->
             <enum name="top" value="0x30"/>
-            
+            <!-- Inset the bottom edge. -->
             <enum name="bottom" value="0x50"/>
-            
+            <!-- Inset the left edge. -->
             <enum name="left" value="0x03"/>
-            
+            <!-- Inset the right edge. -->
             <enum name="right" value="0x05"/>
-            
+            <!-- Inset the start edge. -->
             <enum name="start" value="0x00800003"/>
-            
+            <!-- Inset the end edge. -->
             <enum name="end" value="0x00800005"/>
         </attr>
         
         <attr name="layout_dodgeInsetEdges">
-            
+            <!-- Don't dodge any edges -->
             <flag name="none" value="0x0"/>
-            
+            <!-- Dodge the top inset edge. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Dodge the bottom inset edge. -->
             <flag name="bottom" value="0x50"/>
-            
+            <!-- Dodge the left inset edge. -->
             <flag name="left" value="0x03"/>
-            
+            <!-- Dodge the right inset edge. -->
             <flag name="right" value="0x05"/>
-            
+            <!-- Dodge the start inset edge. -->
             <flag name="start" value="0x00800003"/>
-            
+            <!-- Dodge the end inset edge. -->
             <flag name="end" value="0x00800005"/>
-            
+            <!-- Dodge all the inset edges. -->
             <flag name="all" value="0x77"/>
         </attr>
     </declare-styleable>
@@ -11257,6 +11869,56 @@
         <attr format="boolean" name="customBoolean"/>
         <attr format="reference" name="customReference"/>
     </declare-styleable>
+    <declare-styleable name="DelayedConfirmationView">
+<attr format="integer" name="update_interval"/>
+</declare-styleable>
+    <declare-styleable name="DialogPreference">
+        
+        <attr format="string" name="dialogTitle"/>
+        <attr name="android:dialogTitle"/>
+        
+        <attr format="string" name="dialogMessage"/>
+        <attr name="android:dialogMessage"/>
+        
+        <attr format="reference" name="dialogIcon"/>
+        <attr name="android:dialogIcon"/>
+        
+        <attr format="string" name="positiveButtonText"/>
+        <attr name="android:positiveButtonText"/>
+        
+        <attr format="string" name="negativeButtonText"/>
+        <attr name="android:negativeButtonText"/>
+        
+        <attr format="reference" name="dialogLayout"/>
+        <attr name="android:dialogLayout"/>
+    </declare-styleable>
+    <declare-styleable name="DotsPageIndicator">
+<attr format="dimension" name="dotSpacing"/>
+
+<attr format="dimension" name="dotRadius"/>
+
+<attr format="dimension" name="dotRadiusSelected"/>
+
+<attr format="color" name="dotColor"/>
+
+<attr format="color" name="dotColorSelected"/>
+
+<attr format="boolean" name="dotFadeWhenIdle"/>
+
+<attr format="integer" name="dotFadeOutDelay"/>
+
+<attr format="integer" name="dotFadeOutDuration"/>
+
+<attr format="integer" name="dotFadeInDuration"/>
+
+<attr format="color" name="dotShadowColor"/>
+
+<attr format="dimension" name="dotShadowRadius"/>
+
+<attr format="dimension" name="dotShadowDx"/>
+
+<attr format="dimension" name="dotShadowDy"/>
+</declare-styleable>
     <declare-styleable name="DrawerArrowToggle">
         
         <attr format="color" name="color"/>
@@ -11279,16 +11941,20 @@
         
         <attr name="elevation"/>
     </declare-styleable>
+    <declare-styleable name="EditTextPreference">
+        
+        <attr format="boolean" name="useSimpleSummaryProvider"/>
+    </declare-styleable>
     <declare-styleable name="ExtendedFloatingActionButton">
     
     <attr name="elevation"/>
     
     <attr name="extendStrategy">
-      
+      <!-- Strategy to extend FAB back to the width it shrunk from. -->
       <enum name="auto" value="0"/>
-      
+      <!-- Strategy to extend FAB to wrap content. -->
       <enum name="wrap_content" value="1"/>
-      
+      <!-- Strategy to extend FAB to match parent. -->
       <enum name="match_parent" value="2"/>
     </attr>
     
@@ -11320,11 +11986,11 @@
 
     
     <attr name="fabSize">
-      
+      <!-- A size which will change based on the window size. -->
       <enum name="auto" value="-1"/>
-      
+      <!-- The normal sized button. -->
       <enum name="normal" value="0"/>
-      
+      <!-- The mini sized button. -->
       <enum name="mini" value="1"/>
     </attr>
     
@@ -11373,14 +12039,23 @@
         <attr format="reference" name="fontProviderCerts"/>
         
         <attr name="fontProviderFetchStrategy">
-            
+            <!-- The blocking font fetch works as follows.
+              First, check the local cache, then if the requested font is not cached, request the
+              font from the provider and wait until it is finished.  You can change the length of
+              the timeout by modifying fontProviderFetchTimeout.  If the timeout happens, the
+              default typeface will be used instead. -->
             <enum name="blocking" value="0"/>
-            
+            <!-- The async font fetch works as follows.
+              First, check the local cache, then if the requeted font is not cached, trigger a
+              request the font and continue with layout inflation. Once the font fetch succeeds, the
+              target text view will be refreshed with the downloaded font data. The
+              fontProviderFetchTimeout will be ignored if async loading is specified. -->
             <enum name="async" value="1"/>
         </attr>
         
         <attr format="integer" name="fontProviderFetchTimeout">
-            
+            <!-- A special value for the timeout. In this case, the blocking font fetching will not
+              timeout and wait until a reply is received from the font provider. -->
             <enum name="forever" value="-1"/>
         </attr>
         
@@ -11734,20 +12409,32 @@
     <declare-styleable name="LinearProgressIndicator">
     
     <attr name="indeterminateAnimationType">
-      
+      <!--
+        The track will be filled with three adjacent segments in iterative different colors.
+        This type is only available when there are three or more indicator
+        colors.
+      -->
       <enum name="contiguous" value="0"/>
-      
+      <!--
+        There will be two disjoint segments in the same color per cycle. The color iterates between cycles.
+      -->
       <enum name="disjoint" value="1"/>
     </attr>
     
     <attr name="indicatorDirectionLinear">
-      
+      <!-- Animated from the left end to the right end of the track. -->
       <enum name="leftToRight" value="0"/>
-      
+      <!-- Animated from the right end to the left end of the track. -->
       <enum name="rightToLeft" value="1"/>
-      
+      <!--
+        Animated from the start position to the end position of the track.
+        This will be same as the leftToRight for API before 17.
+      -->
       <enum name="startToEnd" value="2"/>
-      
+      <!--
+        Animated from the end position to the start position of the track.
+        This will be same as the rightToLeft for API before 17.
+      -->
       <enum name="endToStart" value="3"/>
     </attr>
   </declare-styleable>
@@ -11756,6 +12443,16 @@
         <attr name="android:dropDownVerticalOffset"/>
         
         <attr name="android:dropDownHorizontalOffset"/>
+    </declare-styleable>
+    <declare-styleable name="ListPreference">
+        
+        <attr format="reference" name="entries"/>
+        <attr name="android:entries"/>
+        
+        <attr format="reference" name="entryValues"/>
+        <attr name="android:entryValues"/>
+        
+        <attr name="useSimpleSummaryProvider"/>
     </declare-styleable>
     <declare-styleable name="MaterialAlertDialog">
     <attr format="dimension" name="backgroundInsetStart"/>
@@ -11805,17 +12502,20 @@
     <attr format="dimension" name="iconPadding"/>
     
     <attr name="iconGravity">
-      
+      <!-- Push icon to the start of the button. -->
       <flag name="start" value="0x1"/>
-      
+      <!-- Push the icon to the start of the text keeping a distance equal to
+           {@code iconPadding} from the text. -->
       <flag name="textStart" value="0x2"/>
-      
+      <!-- Push icon to the end of the button. -->
       <flag name="end" value="0x3"/>
-      
+      <!-- Push the icon to the end of the text keeping a distance equal to
+           {@code iconPadding} from the text. -->
       <flag name="textEnd" value="0x4"/>
-      
+      <!-- Push the icon to the top of the button. -->
       <flag name="top" value="0x10"/>
-      
+      <!-- Push the icon to the top of the text keeping a distance equal to
+           {@code iconPadding} from the text. -->
       <flag name="textTop" value="0x20"/>
     </attr>
     
@@ -11887,13 +12587,13 @@
     <attr format="dimension" name="checkedIconMargin"/>
     
     <attr name="checkedIconGravity">
-      
+      <!-- Gravity.TOP | Gravity.END -->
       <enum name="TOP_END" value="8388661"/>
-      
+      <!-- Gravity.TOP | Gravity.START -->
       <enum name="TOP_START" value="8388659"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.END -->
       <enum name="BOTTOM_END" value="8388693"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.START -->
       <enum name="BOTTOM_START" value="8388691"/>
     </attr>
     
@@ -11923,17 +12623,22 @@
     <attr format="reference|color" name="buttonIconTint"/>
     
     <attr name="buttonIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
-      
+      <!-- Combines the tint and drawable color and alpha channels, clamping the
+           result to valid color values. Saturate(S + D) -->
       <enum name="add" value="16"/>
     </attr>
     
@@ -11944,11 +12649,11 @@
     <attr format="string" name="errorAccessibilityLabel"/>
     
     <attr name="checkedState">
-      
+      <!-- The unchecked state of the checkbox. -->
       <enum name="unchecked" value="0"/>
-      
+      <!-- The checked state of the checkbox. -->
       <enum name="checked" value="1"/>
-      
+      <!-- The indeterminate state of the checkbox. -->
       <enum name="indeterminate" value="2"/>
     </attr>
   </declare-styleable>
@@ -11989,17 +12694,22 @@
     <attr format="color" name="thumbIconTint"/>
     
     <attr name="thumbIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
-      
+      <!-- Combines the tint and drawable color and alpha channels, clamping the
+           result to valid color values. Saturate(S + D) -->
       <enum name="add" value="16"/>
     </attr>
     
@@ -12008,17 +12718,22 @@
     <attr format="color" name="trackDecorationTint"/>
     
     <attr name="trackDecorationTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
-      
+      <!-- Combines the tint and drawable color and alpha channels, clamping the
+           result to valid color values. Saturate(S + D) -->
       <enum name="add" value="16"/>
     </attr>
   </declare-styleable>
@@ -12049,21 +12764,27 @@
     <attr format="boolean" name="logoAdjustViewBounds"/>
     
     <attr name="logoScaleType">
-      
+      <!-- Scale using the image matrix when drawing. See
+           {@link android.widget.ImageView#setImageMatrix(Matrix)}. -->
       <enum name="matrix" value="0"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#FILL}. -->
       <enum name="fitXY" value="1"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#START}. -->
       <enum name="fitStart" value="2"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#CENTER}. -->
       <enum name="fitCenter" value="3"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#END}. -->
       <enum name="fitEnd" value="4"/>
-      
+      <!-- Center the image in the view, but perform no scaling. -->
       <enum name="center" value="5"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so both dimensions
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
       <enum name="centerCrop" value="6"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so that both
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
       <enum name="centerInside" value="7"/>
     </attr>
   </declare-styleable>
@@ -12151,15 +12872,24 @@
 
         
         <attr name="showAsAction">
-            
+            <!-- Never show this item in an action bar, show it in the overflow menu instead.
+                 Mutually exclusive with "ifRoom" and "always". -->
             <flag name="never" value="0"/>
-            
+            <!-- Show this item in an action bar if there is room for it as determined
+                 by the system. Favor this option over "always" where possible.
+                 Mutually exclusive with "never" and "always". -->
             <flag name="ifRoom" value="1"/>
-            
+            <!-- Always show this item in an actionbar, even if it would override
+                 the system's limits of how much stuff to put there. This may make
+                 your action bar look bad on some screens. In most cases you should
+                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never". -->
             <flag name="always" value="2"/>
-            
+            <!-- When this item is shown as an action in the action bar, show a text
+                 label with it even if it has an icon representation. -->
             <flag name="withText" value="4"/>
-            
+            <!-- This item's action view collapses to a normal menu
+                 item. When expanded, the action view takes over a
+                 larger segment of its container. -->
             <flag name="collapseActionView" value="8"/>
         </attr>
 
@@ -12183,17 +12913,22 @@
 
         
         <attr name="iconTintMode">
-            
+            <!-- The tint is drawn on top of the icon.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the icon. The icon’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the icon, but with the icon’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the icon with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
 
@@ -12316,6 +13051,14 @@
         <attr format="color" name="telltales_tailColor"/>
         <attr format="float" name="telltales_tailScale"/>
     </declare-styleable>
+    <declare-styleable name="MultiSelectListPreference">
+        
+        <attr name="entries"/>
+        <attr name="android:entries"/>
+        
+        <attr name="entryValues"/>
+        <attr name="android:entryValues"/>
+    </declare-styleable>
     <declare-styleable name="NavigationBarActiveIndicator">
     
     <attr name="android:color"/>
@@ -12335,13 +13078,14 @@
     <attr name="menu"/>
     
     <attr name="labelVisibilityMode">
-      
+      <!-- Label behaves as "labeled" when there are 3 items or less, or "selected" when there are
+           4 items or more. -->
       <enum name="auto" value="-1"/>
-      
+      <!-- Label is shown on the selected navigation item. -->
       <enum name="selected" value="0"/>
-      
+      <!-- Label is shown on all navigation items. -->
       <enum name="labeled" value="1"/>
-      
+      <!-- Label is not shown on any navigation items. -->
       <enum name="unlabeled" value="2"/>
     </attr>
     
@@ -12377,14 +13121,14 @@
     <attr name="headerLayout"/>
    
     <attr name="menuGravity">
-      
-      
+      <!-- Navigation rail destinations will be aligned as a group at the top. This is the default behavior. -->
+      <!-- Gravity.TOP | Gravity.CENTER_HORIZONTAL-->
       <enum name="top" value="49"/>
-      
-      
+      <!-- Navigation rail destinations will be aligned as a group at the center. -->
+      <!-- Gravity.CENTER -->
       <enum name="center" value="17"/>
-      
-      
+      <!-- Navigation rail destinations will be aligned as a group at the bottom. -->
+      <!-- Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL -->
       <enum name="bottom" value="81"/>
     </attr>
     
@@ -12507,33 +13251,20 @@
         </attr>
 
     </declare-styleable>
-    <declare-styleable name="PageIndicatorView">
-        
-        <attr format="dimension" name="wsPageIndicatorDotSpacing"/>
-        
-        <attr format="dimension" name="wsPageIndicatorDotRadius"/>
-        
-        <attr format="dimension" name="wsPageIndicatorDotRadiusSelected"/>
-        
-        <attr format="color" name="wsPageIndicatorDotColor"/>
-        
-        <attr format="color" name="wsPageIndicatorDotColorSelected"/>
-        
-        <attr format="boolean" name="wsPageIndicatorDotFadeWhenIdle"/>
-        
-        <attr format="integer" name="wsPageIndicatorDotFadeOutDelay"/>
-        
-        <attr format="integer" name="wsPageIndicatorDotFadeOutDuration"/>
-        
-        <attr format="integer" name="wsPageIndicatorDotFadeInDuration"/>
-        
-        <attr format="color" name="wsPageIndicatorDotShadowColor"/>
-        
-        <attr format="dimension" name="wsPageIndicatorDotShadowRadius"/>
-        
-        <attr format="dimension" name="wsPageIndicatorDotShadowDx"/>
-        
-        <attr format="dimension" name="wsPageIndicatorDotShadowDy"/>
+    <declare-styleable name="PageIndicatorView"><attr format="dimension" name="wsPageIndicatorDotSpacing"/><attr format="dimension" name="wsPageIndicatorDotRadius"/><attr format="dimension" name="wsPageIndicatorDotRadiusSelected"/><attr format="color" name="wsPageIndicatorDotColor"/><attr format="color" name="wsPageIndicatorDotColorSelected"/><attr format="boolean" name="wsPageIndicatorDotFadeWhenIdle"/><attr format="integer" name="wsPageIndicatorDotFadeOutDelay"/><attr format="integer" name="wsPageIndicatorDotFadeOutDuration"/><attr format="integer" name="wsPageIndicatorDotFadeInDuration"/><attr format="color" name="wsPageIndicatorDotShadowColor"/><attr format="dimension" name="wsPageIndicatorDotShadowRadius"/><attr format="dimension" name="wsPageIndicatorDotShadowDx"/><attr format="dimension" name="wsPageIndicatorDotShadowDy"/><attr format="dimension" name="pageIndicatorDotSpacing"/><attr format="dimension" name="pageIndicatorDotRadius"/><attr format="dimension" name="pageIndicatorDotRadiusSelected"/><attr format="color" name="pageIndicatorDotColor"/><attr format="color" name="pageIndicatorDotColorSelected"/><attr format="boolean" name="pageIndicatorDotFadeWhenIdle"/><attr format="integer" name="pageIndicatorDotFadeOutDelay"/><attr format="integer" name="pageIndicatorDotFadeOutDuration"/><attr format="integer" name="pageIndicatorDotFadeInDuration"/><attr format="color" name="pageIndicatorDotShadowColor"/><attr format="dimension" name="pageIndicatorDotShadowRadius"/><attr format="dimension" name="pageIndicatorDotShadowDx"/><attr format="dimension" name="pageIndicatorDotShadowDy"/></declare-styleable>
+    <declare-styleable name="PercentLayout_Layout">
+        <attr format="fraction" name="layout_widthPercent"/>
+
+        <attr format="fraction" name="layout_heightPercent"/>
+
+        <attr format="fraction" name="layout_marginPercent"/>
+        <attr format="fraction" name="layout_marginLeftPercent"/>
+        <attr format="fraction" name="layout_marginTopPercent"/>
+        <attr format="fraction" name="layout_marginRightPercent"/>
+        <attr format="fraction" name="layout_marginBottomPercent"/>
+        <attr format="fraction" name="layout_marginStartPercent"/>
+        <attr format="fraction" name="layout_marginEndPercent"/>
+        <attr format="fraction" name="layout_aspectRatio"/>
     </declare-styleable>
     <declare-styleable name="PopupWindow">
         
@@ -12545,6 +13276,148 @@
         
         <attr format="boolean" name="state_above_anchor"/>
     </declare-styleable>
+    <declare-styleable name="Preference">
+        
+        <attr name="icon"/>
+        <attr name="android:icon"/>
+        
+        <attr format="string" name="key"/>
+        <attr name="android:key"/>
+        
+        <attr name="title"/>
+        <attr name="android:title"/>
+        
+        <attr format="string" name="summary"/>
+        <attr name="android:summary"/>
+        
+        <attr format="integer" name="order"/>
+        <attr name="android:order"/>
+        
+        <attr format="string" name="fragment"/>
+        <attr name="android:fragment"/>
+        
+        <attr name="layout"/>
+        <attr name="android:layout"/>
+        
+        <attr format="reference" name="widgetLayout"/>
+        <attr name="android:widgetLayout"/>
+        
+        <attr format="boolean" name="enabled"/>
+        <attr name="android:enabled"/>
+        
+        <attr format="boolean" name="selectable"/>
+        <attr name="android:selectable"/>
+        
+        <attr format="string" name="dependency"/>
+        <attr name="android:dependency"/>
+        
+        <attr format="boolean" name="persistent"/>
+        <attr name="android:persistent"/>
+        
+        <attr format="string|boolean|integer|reference|float" name="defaultValue"/>
+        <attr name="android:defaultValue"/>
+        
+        <attr format="boolean" name="shouldDisableView"/>
+        <attr name="android:shouldDisableView"/>
+
+        
+        <attr format="boolean" name="allowDividerAbove"/>
+
+        
+        <attr format="boolean" name="allowDividerBelow"/>
+
+        
+        <attr format="boolean" name="singleLineTitle"/>
+        <attr name="android:singleLineTitle"/>
+
+        
+        <attr format="boolean" name="iconSpaceReserved"/>
+        <attr name="android:iconSpaceReserved"/>
+
+        
+        <attr format="boolean" name="isPreferenceVisible"/>
+
+        
+        <attr format="boolean" name="enableCopying"/>
+    </declare-styleable>
+    <declare-styleable name="PreferenceFragment">
+        
+        <attr name="android:layout"/>
+        
+        <attr name="android:divider"/>
+        
+        <attr name="android:dividerHeight"/>
+        
+        <attr name="allowDividerAfterLastItem"/>
+    </declare-styleable>
+    <declare-styleable name="PreferenceFragmentCompat">
+        
+        <attr name="android:layout"/>
+        
+        <attr name="android:divider"/>
+        
+        <attr name="android:dividerHeight"/>
+        
+        <attr format="boolean" name="allowDividerAfterLastItem"/>
+    </declare-styleable>
+    <declare-styleable name="PreferenceGroup">
+        
+        <attr format="boolean" name="orderingFromXml"/>
+        <attr name="android:orderingFromXml"/>
+        
+        <attr format="integer" name="initialExpandedChildrenCount"/>
+    </declare-styleable>
+    <declare-styleable name="PreferenceImageView">
+        <attr format="dimension" name="maxWidth"/>
+        <attr name="android:maxWidth"/>
+        <attr format="dimension" name="maxHeight"/>
+        <attr name="android:maxHeight"/>
+    </declare-styleable>
+    <declare-styleable name="PreferenceTheme">
+
+        
+        
+        
+        <eat-comment/>
+
+        
+        <attr format="reference" name="preferenceTheme"/>
+
+        
+        <attr format="reference" name="preferenceCategoryTitleTextAppearance"/>
+
+        
+        <attr format="reference" name="preferenceScreenStyle"/>
+        
+        <attr format="reference" name="preferenceFragmentStyle"/>
+        
+        <attr format="reference" name="preferenceFragmentCompatStyle"/>
+        
+        <attr format="reference" name="preferenceCategoryStyle"/>
+        
+        <attr format="reference" name="preferenceStyle"/>
+        
+        <attr format="reference" name="preferenceInformationStyle"/>
+        
+        <attr format="reference" name="checkBoxPreferenceStyle"/>
+        
+        <attr format="reference" name="dialogPreferenceStyle"/>
+        
+        <attr format="reference" name="editTextPreferenceStyle"/>
+        
+        <attr format="reference" name="dropdownPreferenceStyle"/>
+        
+        <attr format="reference" name="preferenceFragmentListStyle"/>
+        
+        <attr format="reference" name="switchPreferenceStyle"/>
+        
+        <attr format="reference" name="switchPreferenceCompatStyle"/>
+        
+        <attr format="reference" name="seekBarPreferenceStyle"/>
+    </declare-styleable>
+    <declare-styleable name="ProgressSpinner">
+<attr format="color|reference" name="color_sequence"/>
+</declare-styleable>
     <declare-styleable name="PropertySet">
         
         <attr name="android:visibility"/>
@@ -12638,6 +13511,19 @@
     <attr name="strokeWidth"/>
   </declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/><attr name="android:textAppearance"/><attr name="android:text"/><attr name="android:hint"/><attr format="string" name="searchPrefixText"/><attr format="boolean" name="useDrawerArrowDrawable"/><attr format="boolean" name="animateNavigationIcon"/><attr format="boolean" name="animateMenuItems"/><attr name="hideNavigationIcon"/><attr format="boolean" name="autoShowKeyboard"/><attr name="headerLayout"/></declare-styleable>
+    <declare-styleable name="SeekBarPreference">
+        <attr format="integer" name="min"/>
+        <attr name="android:max"/>
+        <attr name="android:layout"/>
+        
+        <attr format="integer" name="seekBarIncrement"/>
+        
+        <attr format="boolean" name="adjustable"/>
+        
+        <attr format="boolean" name="showSeekBarValue"/>
+        
+        <attr format="boolean" name="updatesContinuously"/>
+    </declare-styleable>
     <declare-styleable name="ShapeAppearance">
     
     <attr format="dimension|fraction" name="cornerSize"/>
@@ -12725,13 +13611,13 @@
     <attr format="dimension" name="haloRadius"/>
     
     <attr name="labelBehavior">
-      
+      <!-- Mode that draws the label floating above the bounds of this view. -->
       <enum name="floating" value="0"/>
-      
+      <!-- Mode that draws the label within the bounds of the view. -->
       <enum name="withinBounds" value="1"/>
-      
+      <!-- Mode that prevents the label from being drawn. -->
       <enum name="gone" value="2"/>
-      
+      <!-- Mode that always draws the label. -->
       <enum name="visible" value="3"/>
     </attr>
     
@@ -12783,9 +13669,9 @@
     <attr format="dimension" name="maxActionInlineWidth"/>
     
     <attr format="enum" name="animationMode">
-      
+      <!-- Mode that corresponds to the slide in and out animations. -->
       <enum name="slide" value="0"/>
-      
+      <!-- Mode that corresponds to the fade in and out animations. -->
       <enum name="fade" value="1"/>
     </attr>
     
@@ -12847,17 +13733,22 @@
         <attr format="color" name="thumbTint"/>
         
         <attr name="thumbTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
         
@@ -12866,17 +13757,22 @@
         <attr format="color" name="trackTint"/>
         
         <attr name="trackTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
         
@@ -12900,6 +13796,40 @@
     
     <attr name="useMaterialThemeColors"/>
   </declare-styleable>
+    <declare-styleable name="SwitchPreference">
+        
+        <attr name="summaryOn"/>
+        <attr name="android:summaryOn"/>
+        
+        <attr name="summaryOff"/>
+        <attr name="android:summaryOff"/>
+        
+        <attr name="switchTextOn"/>
+        <attr name="android:switchTextOn"/>
+        
+        <attr name="switchTextOff"/>
+        <attr name="android:switchTextOff"/>
+        
+        <attr name="disableDependentsState"/>
+        <attr name="android:disableDependentsState"/>
+    </declare-styleable>
+    <declare-styleable name="SwitchPreferenceCompat">
+        
+        <attr name="summaryOn"/>
+        <attr name="android:summaryOn"/>
+        
+        <attr name="summaryOff"/>
+        <attr name="android:summaryOff"/>
+        
+        <attr format="string" name="switchTextOn"/>
+        <attr name="android:switchTextOn"/>
+        
+        <attr format="string" name="switchTextOff"/>
+        <attr name="android:switchTextOff"/>
+        
+        <attr name="disableDependentsState"/>
+        <attr name="android:disableDependentsState"/>
+    </declare-styleable>
     <declare-styleable name="TabItem">
     
     <attr name="android:text"/>
@@ -12921,13 +13851,13 @@
     <attr format="reference" name="tabIndicator"/>
     
     <attr name="tabIndicatorGravity">
-      
+      <!-- Align indicator to the bottom of this tab layout. -->
       <enum name="bottom" value="0"/>
-      
+      <!-- Align indicator along the center of this tab layout. -->
       <enum name="center" value="1"/>
-      
+      <!-- Align indicator to the top of this tab layout. -->
       <enum name="top" value="2"/>
-      
+      <!-- Stretch indicator to match the height and width of a tab item in this layout. -->
       <enum name="stretch" value="3"/>
     </attr>
     
@@ -12936,11 +13866,17 @@
     <attr format="boolean" name="tabIndicatorFullWidth"/>
     
     <attr name="tabIndicatorAnimationMode">
-      
+      <!-- Animate the selection indicator's left and right bounds in step with
+           each other. -->
       <enum name="linear" value="0"/>
-      
+      <!-- Animate the selection indicator's left and right bounds out of step
+           with each other, decelerating the front and accelerating the back.
+           This causes the indicator to look like it stretches between destinations
+           an then shrinks back down to fit the size of it's target tab. -->
       <enum name="elastic" value="1"/>
-      
+      <!-- Animate the selection indicator by sequentially fading it out from
+           its current destination and then fading it in at its new
+           destination. -->
       <enum name="fade" value="2"/>
     </attr>
     
@@ -13068,15 +14004,19 @@
     <attr format="reference" name="errorIconTint"/>
     
     <attr name="errorIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
 
@@ -13123,47 +14063,56 @@
     <attr format="color" name="startIconTint"/>
     
     <attr name="startIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
     
     <attr format="dimension" name="startIconMinSize"/>
     
     <attr name="startIconScaleType">
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#FILL}. -->
       <enum name="fitXY" value="0"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#START}. -->
       <enum name="fitStart" value="1"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#CENTER}. -->
       <enum name="fitCenter" value="2"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#END}. -->
       <enum name="fitEnd" value="3"/>
-      
+      <!-- Center the image in the view, but perform no scaling. -->
       <enum name="center" value="4"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so both dimensions
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
       <enum name="centerCrop" value="5"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so that both
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
       <enum name="centerInside" value="6"/>
     </attr>
     
     <attr name="endIconMode">
-      
+      <!-- The view will display a custom icon specified by the user. -->
       <enum name="custom" value="-1"/>
-      
+      <!-- No end icon. -->
       <enum name="none" value="0"/>
-      
+      <!-- The view will display a toggle when the EditText has a password. -->
       <enum name="password_toggle" value="1"/>
-      
+      <!-- The view will display a clear text button while the EditText contains input. -->
       <enum name="clear_text" value="2"/>
-      
+      <!-- The view will display a toggle that displays/hides a dropdown menu. -->
       <enum name="dropdown_menu" value="3"/>
     </attr>
     
@@ -13176,44 +14125,53 @@
     <attr format="color" name="endIconTint"/>
     
     <attr name="endIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
     
     <attr format="dimension" name="endIconMinSize"/>
     
     <attr name="endIconScaleType">
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#FILL}. -->
       <enum name="fitXY" value="0"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#START}. -->
       <enum name="fitStart" value="1"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#CENTER}. -->
       <enum name="fitCenter" value="2"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#END}. -->
       <enum name="fitEnd" value="3"/>
-      
+      <!-- Center the image in the view, but perform no scaling. -->
       <enum name="center" value="4"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so both dimensions
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
       <enum name="centerCrop" value="5"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so that both
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
       <enum name="centerInside" value="6"/>
     </attr>
 
     
     <attr name="boxBackgroundMode">
-      
+      <!-- Specifies that there should be no box set on the text input area. -->
       <enum name="none" value="0"/>
-      
+      <!-- Filled box mode for the text input box. -->
       <enum name="filled" value="1"/>
-      
+      <!-- Outline box mode for the text input box. -->
       <enum name="outline" value="2"/>
     </attr>
     
@@ -13252,15 +14210,19 @@
     <attr format="color" name="passwordToggleTint"/>
     
     <attr name="passwordToggleTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
   </declare-styleable>
@@ -13302,11 +14264,11 @@
         <attr name="contentInsetEndWithActions"/>
         <attr format="dimension" name="maxButtonHeight"/>
         <attr name="buttonGravity">
-            
+            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10"/>
-            
+            <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50"/>
         </attr>
         
@@ -13439,17 +14401,22 @@
 
         
         <attr name="backgroundTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -13480,6 +14447,18 @@
         <attr format="reference" name="ifTagSet"/>
         <attr format="reference" name="ifTagNotSet"/>
     </declare-styleable>
+    <declare-styleable name="WatchViewStub">
+<attr format="reference" name="rectLayout"/>
+
+<attr format="reference" name="roundLayout"/>
+</declare-styleable>
+    <declare-styleable name="WearableActionDrawer">
+<attr format="reference" name="action_menu"/>
+
+<attr format="string" name="drawer_title"/>
+
+<attr format="boolean" name="show_overflow_in_peek"/>
+</declare-styleable>
     <declare-styleable name="WearableActionDrawerView">
         
         <attr format="string" name="drawerTitle"/>
@@ -13488,33 +14467,75 @@
         
         <attr format="boolean" name="showOverflowInPeek"/>
     </declare-styleable>
-    <declare-styleable name="WearableDrawerView">
-        
-        <attr format="reference" name="peekView"/>
-        
-        <attr format="reference" name="drawerContent"/>
-        
-        <attr format="boolean" name="enableAutoPeek"/>
-        <attr name="android:background"/>
-        <attr name="android:elevation"/>
-    </declare-styleable>
+    <declare-styleable name="WearableDialogPreference">
+<attr format="string" name="neutralButtonText"/>
+
+<attr format="reference" name="positiveButtonIcon"/>
+
+<attr format="reference" name="neutralButtonIcon"/>
+
+<attr format="reference" name="negativeButtonIcon"/>
+</declare-styleable>
+    <declare-styleable name="WearableDrawerView"><attr format="reference" name="peekView"/><attr format="reference" name="drawerContent"/><attr format="boolean" name="enableAutoPeek"/><attr name="android:background"/><attr name="android:elevation"/><attr format="reference" name="peek_view"/><attr format="reference" name="drawer_content"/></declare-styleable>
+    <declare-styleable name="WearableFrameLayout"><attr name="layout_gravityRound">
+<flag name="top" value="0x30"/>
+<flag name="bottom" value="0x50"/>
+<flag name="left" value="0x03"/>
+<flag name="right" value="0x05"/>
+<flag name="center_vertical" value="0x10"/>
+<flag name="fill_vertical" value="0x70"/>
+<flag name="center_horizontal" value="0x01"/>
+<flag name="fill_horizontal" value="0x07"/>
+<flag name="center" value="0x11"/>
+<flag name="fill" value="0x77"/>
+<flag name="clip_vertical" value="0x80"/>
+<flag name="clip_horizontal" value="0x08"/>
+<flag name="start" value="0x00800003"/>
+<flag name="end" value="0x00800005"/>
+</attr>
+
+<attr format="dimension" name="layout_widthRound"/>
+
+<attr format="dimension" name="layout_heightRound"/>
+
+<attr format="dimension" name="layout_marginRound"/>
+
+<attr format="dimension" name="layout_marginLeftRound"/>
+
+<attr format="dimension" name="layout_marginTopRound"/>
+
+<attr format="dimension" name="layout_marginRightRound"/>
+
+<attr format="dimension" name="layout_marginBottomRound"/>
+
+<attr name="android:foregroundGravity"/>
+
+<attr name="android:foreground"/>
+
+<attr name="android:measureAllChildren"/>
+
+<attr name="android:foregroundTint"/>
+</declare-styleable>
+    <declare-styleable name="WearableNavigationDrawer"><attr name="navigation_style">
+<enum name="single_page" value="0"/>
+
+<enum name="multi_page" value="1"/>
+
+</attr>
+</declare-styleable>
     <declare-styleable name="WearableNavigationDrawerView">
         
         <attr format="enum" name="navigationStyle">
-            
+            <!-- Single page navigation drawer style. This is the default drawer style. It is ideal
+                 for 1-5 items, but works with up to 7 items. If more than 7 items exist, then the
+                 drawer will be displayed as empty. -->
             <enum name="singlePage" value="0"/>
-            
+            <!-- Multi-page navigation drawer style. Each item is on its own page. Useful when more
+                 than 7 items exist. -->
             <enum name="multiPage" value="1"/>
         </attr>
     </declare-styleable>
-    <declare-styleable name="WearableRecyclerView">
-        
-        <attr format="fraction" name="bezelWidth"/>
-        
-        <attr format="boolean" name="circularScrollingGestureEnabled"/>
-        
-        <attr format="float" name="scrollDegreesPerScreen"/>
-    </declare-styleable>
+    <declare-styleable name="WearableRecyclerView"><attr format="fraction" name="bezelWidth"/><attr format="boolean" name="circularScrollingGestureEnabled"/><attr format="float" name="scrollDegreesPerScreen"/><attr format="fraction" name="bezel_width"/><attr format="boolean" name="circular_scrolling_gesture_enabled"/><attr format="float" name="scroll_degrees_per_screen"/></declare-styleable>
     <declare-styleable name="include">
         <attr name="constraintSet"/>
     </declare-styleable>

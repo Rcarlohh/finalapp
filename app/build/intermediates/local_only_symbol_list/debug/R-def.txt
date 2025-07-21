@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 id btn_send
+id layout_main
 id tv_heart_rate
 id tv_oxygen
 id tv_steps

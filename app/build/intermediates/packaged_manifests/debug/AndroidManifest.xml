@@ -5,19 +5,29 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="26"
+        android:minSdkVersion="28"
         android:targetSdkVersion="33" />
 
+    <!-- Permisos básicos para sensores -->
     <uses-permission android:name="android.permission.BODY_SENSORS" />
-    <uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!-- Permisos específicos de Samsung Health -->
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+    <uses-permission android:name="com.samsung.health.permission.read" />
+
+    <!-- Características del dispositivo -->
+    <uses-feature android:name="android.hardware.type.watch" />
     <uses-feature
-        android:name="android.hardware.type.watch"
-        android:required="true" />
+        android:name="android.hardware.sensor.heartrate"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="false" />
 
     <permission
         android:name="com.example.finalapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -35,23 +45,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.FinalApp"
-        android:usesCleartextTraffic="true" >
+        android:theme="@style/Theme.FinalApp" >
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
 
+        <!-- Actividad principal con tema específico para Wear -->
         <activity
             android:name="com.example.finalapp.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.FinalApp" >
+            android:theme="@android:style/Theme.DeviceDefault" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- Wear OS launcher intent -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.WEARABLE_APP" />
+            </intent-filter>
         </activity>
+
+        <!-- Metadata para Samsung Health -->
+        <meta-data
+            android:name="com.samsung.android.health.permission.read"
+            android:value="com.samsung.health.step_count;com.samsung.health.heart_rate;com.samsung.health.oxygen_saturation" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

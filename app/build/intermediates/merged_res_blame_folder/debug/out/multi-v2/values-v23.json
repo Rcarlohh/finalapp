@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.finalapp-mergeDebugResources-34:/values-v23/values-v23.xml",
+            "outputFile": "com.example.finalapp-mergeDebugResources-37:/values-v23/values-v23.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\range\\.gradle\\caches\\8.14.3\\transforms\\70c68530f8da124c3e4951b4f808b7b2\\transformed\\jetified-wearable-2.9.0\\res\\values-v23\\values.xml",
+                    "from": {
+                        "startLines": "4,8,12,20,23",
+                        "startColumns": "0,0,0,0,0",
+                        "startOffsets": "211,373,537,938,1079",
+                        "endLines": "7,11,19,22,24",
+                        "endColumns": "8,8,8,8,8",
+                        "endOffsets": "372,536,937,1078,1178"
+                    },
+                    "to": {
+                        "startLines": "50,54,67,75,78",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "3232,3398,4142,4547,4692",
+                        "endLines": "53,57,74,77,79",
+                        "endColumns": "8,8,8,8,8",
+                        "endOffsets": "3393,3561,4542,4687,4791"
+                    }
+                },
                 {
                     "source": "C:\\Users\\range\\.gradle\\caches\\8.14.3\\transforms\\0d817cb4f5bd6185fb9f9affbfb243ec\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
                     "from": {
@@ -25,12 +44,12 @@
                         "endOffsets": "266,476,796,1033,1240,1447,1650,1982,2184,2449,2722"
                     },
                     "to": {
-                        "startLines": "53,56,59,64,68,71,74,77,82,85,89",
+                        "startLines": "61,64,80,85,89,92,95,98,103,106,110",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3382,3598,3808,4128,4365,4572,4779,4982,5314,5516,5781",
-                        "endLines": "55,58,63,67,70,73,76,81,84,88,92",
+                        "startOffsets": "3716,3932,4796,5116,5353,5560,5767,5970,6302,6504,6769",
+                        "endLines": "63,66,84,88,91,94,97,102,105,109,113",
                         "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
-                        "endOffsets": "3593,3803,4123,4360,4567,4774,4977,5309,5511,5776,6049"
+                        "endOffsets": "3927,4137,5111,5348,5555,5762,5965,6297,6499,6764,7037"
                     }
                 },
                 {
@@ -44,12 +63,12 @@
                         "endOffsets": "200"
                     },
                     "to": {
-                        "startLines": "50",
+                        "startLines": "58",
                         "startColumns": "4",
-                        "startOffsets": "3232",
-                        "endLines": "52",
+                        "startOffsets": "3566",
+                        "endLines": "60",
                         "endColumns": "12",
-                        "endOffsets": "3377"
+                        "endOffsets": "3711"
                     }
                 }
             ]
