@@ -2,12 +2,16 @@ package com.example.finalapp
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -19,49 +23,90 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
+import java.io.BufferedReader
 import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : Activity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
+
+    // Variables para los datos de sensores
     private var heartRate: Float = 0f
     private var oxygen: Float = 0f
     private var stress: Float = 0f
     private var steps: Float = 0f
+    private var stepOffset: Float = 0f // Para calcular pasos relativos
 
+    // UI Elements
     private lateinit var tvHeartRate: TextView
     private lateinit var tvOxygen: TextView
     private lateinit var tvStress: TextView
     private lateinit var tvSteps: TextView
     private lateinit var btnSend: Button
 
+    // Sensores registrados
+    private var heartRateSensor: Sensor? = null
+    private var stepCounterSensor: Sensor? = null
+    private var oxygenSensor: Sensor? = null
+    private var stressSensor: Sensor? = null
+
     private val PERMISSION_REQUEST_CODE = 123
+    private val TAG = "WearHealthApp"
+
+    // Handler para timeouts de sensores
+    private val handler = Handler(Looper.getMainLooper())
+    private val sensorTimeout = 10000L // 10 segundos timeout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d(TAG, "=== INICIANDO APLICACIÓN ===")
+
+        // Inicializar vistas
+        initViews()
+
+        // Inicializar sensor manager
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+        // Verificar permisos
+        checkAndRequestPermissions()
+
+        // Configurar botón de envío
+        btnSend.setOnClickListener {
+            sendDataToServer()
+        }
+
+        // Log de información del dispositivo
+        logDeviceInfo()
+    }
+
+    private fun initViews() {
         tvHeartRate = findViewById(R.id.tv_heart_rate)
         tvOxygen = findViewById(R.id.tv_oxygen)
         tvStress = findViewById(R.id.tv_stress)
         tvSteps = findViewById(R.id.tv_steps)
         btnSend = findViewById(R.id.btn_send)
 
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        // Establecer valores iniciales
+        updateUI()
+    }
 
-        // Verificar permisos antes de registrar sensores
-        checkAndRequestPermissions()
-
-        btnSend.setOnClickListener {
-            sendData()
-        }
+    private fun logDeviceInfo() {
+        Log.d(TAG, "Dispositivo: ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}")
+        Log.d(TAG, "Android: ${android.os.Build.VERSION.RELEASE} (API ${android.os.Build.VERSION.SDK_INT})")
+        Log.d(TAG, "Wear OS detectado: ${packageManager.hasSystemFeature("android.hardware.type.watch")}")
     }
 
     private fun checkAndRequestPermissions() {
         val permissions = arrayOf(
             Manifest.permission.BODY_SENSORS,
-            Manifest.permission.ACTIVITY_RECOGNITION
+            Manifest.permission.ACTIVITY_RECOGNITION,
+            Manifest.permission.INTERNET,
+            Manifest.permission.ACCESS_NETWORK_STATE
         )
 
         val permissionsToRequest = mutableListOf<String>()
@@ -69,13 +114,16 @@ class MainActivity : Activity(), SensorEventListener {
         for (permission in permissions) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
                 permissionsToRequest.add(permission)
+                Log.d(TAG, "Permiso faltante: $permission")
             }
         }
 
         if (permissionsToRequest.isNotEmpty()) {
+            Log.d(TAG, "Solicitando permisos: ${permissionsToRequest.joinToString()}")
             ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), PERMISSION_REQUEST_CODE)
         } else {
-            registerSensors()
+            Log.d(TAG, "Todos los permisos concedidos")
+            initializeSensors()
         }
     }
 
@@ -83,259 +131,399 @@ class MainActivity : Activity(), SensorEventListener {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (requestCode == PERMISSION_REQUEST_CODE) {
-            var allPermissionsGranted = true
-            for (result in grantResults) {
-                if (result != PackageManager.PERMISSION_GRANTED) {
-                    allPermissionsGranted = false
-                    break
+            val deniedPermissions = mutableListOf<String>()
+
+            for (i in permissions.indices) {
+                if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                    deniedPermissions.add(permissions[i])
                 }
             }
 
-            if (allPermissionsGranted) {
-                registerSensors()
-                Toast.makeText(this, "Permisos concedidos", Toast.LENGTH_SHORT).show()
+            if (deniedPermissions.isEmpty()) {
+                Log.d(TAG, "Todos los permisos concedidos")
+                Toast.makeText(this, "✓ Permisos concedidos", Toast.LENGTH_SHORT).show()
+                initializeSensors()
             } else {
-                Toast.makeText(this, "Permisos necesarios para el funcionamiento", Toast.LENGTH_LONG).show()
+                Log.w(TAG, "Permisos denegados: ${deniedPermissions.joinToString()}")
+                Toast.makeText(this, "⚠ Algunos permisos fueron denegados", Toast.LENGTH_LONG).show()
+                // Intentar inicializar sensores disponibles
+                initializeSensors()
             }
         }
     }
 
-    private fun registerSensors() {
-        // Registrar sensor de ritmo cardíaco
-        val heartRateSensor = sensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE)
+    private fun initializeSensors() {
+        Log.d(TAG, "=== INICIALIZANDO SENSORES ===")
+
+        // Listar todos los sensores disponibles
+        listAllAvailableSensors()
+
+        // Intentar registrar sensores básicos
+        registerHeartRateSensor()
+        registerStepCounter()
+        registerOxygenSensor()
+        registerStressSensor()
+
+        Log.d(TAG, "=== FIN INICIALIZACIÓN SENSORES ===")
+
+        // Configurar timeout para sensores que no respondan
+        handler.postDelayed({
+            checkSensorStatus()
+        }, sensorTimeout)
+    }
+
+    private fun listAllAvailableSensors() {
+        val allSensors = sensorManager.getSensorList(Sensor.TYPE_ALL)
+        Log.d(TAG, "SENSORES DISPONIBLES (${allSensors.size} total):")
+
+        for (sensor in allSensors) {
+            Log.d(TAG, "├─ Tipo: ${sensor.type}, Nombre: '${sensor.name}'")
+            Log.d(TAG, "│  Vendor: '${sensor.vendor}', Versión: ${sensor.version}")
+            Log.d(TAG, "│  Potencia: ${sensor.power}mA, Resolución: ${sensor.resolution}")
+            Log.d(TAG, "└─ Rango máximo: ${sensor.maximumRange}")
+        }
+    }
+
+    private fun registerHeartRateSensor() {
+        heartRateSensor = sensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE)
+
         if (heartRateSensor != null) {
-            val registered = sensorManager.registerListener(this, heartRateSensor, SensorManager.SENSOR_DELAY_UI)
-            println("Sensor de ritmo cardíaco registrado: $registered")
+            val success = sensorManager.registerListener(
+                this,
+                heartRateSensor,
+                SensorManager.SENSOR_DELAY_UI
+            )
+            Log.d(TAG, "Sensor ritmo cardíaco - Registrado: $success")
+            Log.d(TAG, "  └─ ${heartRateSensor?.name} (${heartRateSensor?.vendor})")
         } else {
-            println("Sensor de ritmo cardíaco no disponible")
-        }
-
-        // Registrar sensor de pasos
-        val stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
-        if (stepSensor != null) {
-            val registered = sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
-            println("Sensor de pasos registrado: $registered")
-        } else {
-            println("Sensor de pasos no disponible")
-        }
-
-        // Para Galaxy Watch, probar diferentes tipos de sensores de oxígeno
-        val oxygenSensors = listOf(
-            65572, // Samsung SpO2
-            65571, // Otro código Samsung
-            Sensor.TYPE_HEART_RATE + 1000, // Variante
-            21 // Otro código posible
-        )
-
-        var oxygenRegistered = false
-        for (sensorType in oxygenSensors) {
-            val sensor = sensorManager.getDefaultSensor(sensorType)
-            if (sensor != null) {
-                val registered = sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
-                if (registered) {
-                    println("Sensor de oxígeno registrado - Tipo: $sensorType, Nombre: ${sensor.name}")
-                    oxygenRegistered = true
-                    break
-                }
-            }
-        }
-
-        if (!oxygenRegistered) {
-            println("Ningún sensor de oxígeno disponible")
-            // Simular datos de oxígeno para testing
+            Log.w(TAG, "❌ Sensor de ritmo cardíaco no disponible")
             runOnUiThread {
-                tvOxygen.text = "Oxigenación: No disponible"
+                tvHeartRate.text = "Ritmo cardíaco: No disponible"
             }
         }
+    }
 
-        // Intentar sensores de estrés/HRV
-        val stressSensors = listOf(
-            65540, // Tipo estrés genérico
-            65541, // Variante estrés
-            31,    // HRV sensor
-            65536 + 4 // Samsung stress
+    private fun registerStepCounter() {
+        stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+
+        if (stepCounterSensor != null) {
+            val success = sensorManager.registerListener(
+                this,
+                stepCounterSensor,
+                SensorManager.SENSOR_DELAY_UI
+            )
+            Log.d(TAG, "Sensor contador de pasos - Registrado: $success")
+            Log.d(TAG, "  └─ ${stepCounterSensor?.name} (${stepCounterSensor?.vendor})")
+        } else {
+            Log.w(TAG, "❌ Sensor contador de pasos no disponible")
+            // Intentar con step detector como alternativa
+            val stepDetector = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
+            if (stepDetector != null) {
+                val success = sensorManager.registerListener(this, stepDetector, SensorManager.SENSOR_DELAY_UI)
+                Log.d(TAG, "Sensor detector de pasos alternativo - Registrado: $success")
+            } else {
+                runOnUiThread {
+                    tvSteps.text = "Pasos: No disponible"
+                }
+            }
+        }
+    }
+
+    private fun registerOxygenSensor() {
+        // Lista de tipos de sensores de SpO2 conocidos
+        val oxygenSensorTypes = listOf(
+            65572, // Samsung SpO2 (Galaxy Watch)
+            65571, // Samsung SpO2 alternativo
+            65574, // Otro código Samsung
+            21,    // Código genérico SpO2
+            22,    // Variante SpO2
+            Sensor.TYPE_HEART_RATE + 1000 // Códigos derivados
         )
 
-        var stressRegistered = false
-        for (sensorType in stressSensors) {
+        for (sensorType in oxygenSensorTypes) {
             val sensor = sensorManager.getDefaultSensor(sensorType)
             if (sensor != null) {
-                val registered = sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
-                if (registered) {
-                    println("Sensor de estrés registrado - Tipo: $sensorType, Nombre: ${sensor.name}")
-                    stressRegistered = true
+                val success = sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
+                if (success) {
+                    oxygenSensor = sensor
+                    Log.d(TAG, "Sensor SpO2 - Registrado: Tipo $sensorType")
+                    Log.d(TAG, "  └─ ${sensor.name} (${sensor.vendor})")
                     break
                 }
             }
         }
 
-        if (!stressRegistered) {
-            println("Ningún sensor de estrés disponible")
+        if (oxygenSensor == null) {
+            Log.w(TAG, "❌ Ningún sensor de SpO2 disponible")
+            runOnUiThread {
+                tvOxygen.text = "SpO2: No disponible"
+            }
+        }
+    }
+
+    private fun registerStressSensor() {
+        // Lista de tipos de sensores de estrés/HRV conocidos
+        val stressSensorTypes = listOf(
+            65540, // Estrés genérico Samsung
+            65541, // Estrés alternativo Samsung
+            65542, // Variante estrés
+            31,    // HRV sensor
+            32,    // Variante HRV
+            65536 + 4, // Samsung stress específico
+            65536 + 5  // Otra variante Samsung
+        )
+
+        for (sensorType in stressSensorTypes) {
+            val sensor = sensorManager.getDefaultSensor(sensorType)
+            if (sensor != null) {
+                val success = sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
+                if (success) {
+                    stressSensor = sensor
+                    Log.d(TAG, "Sensor estrés - Registrado: Tipo $sensorType")
+                    Log.d(TAG, "  └─ ${sensor.name} (${sensor.vendor})")
+                    break
+                }
+            }
+        }
+
+        if (stressSensor == null) {
+            Log.w(TAG, "❌ Ningún sensor de estrés disponible")
             runOnUiThread {
                 tvStress.text = "Estrés: No disponible"
             }
         }
+    }
 
-        // Mostrar todos los sensores disponibles para debug
-        val allSensors = sensorManager.getSensorList(Sensor.TYPE_ALL)
-        println("=== TODOS LOS SENSORES DISPONIBLES ===")
-        for (sensor in allSensors) {
-            println("ID: ${sensor.type}, Nombre: ${sensor.name}, Vendor: ${sensor.vendor}, Versión: ${sensor.version}")
+    private fun checkSensorStatus() {
+        Log.d(TAG, "=== VERIFICANDO ESTADO DE SENSORES ===")
+
+        if (heartRate == 0f && heartRateSensor != null) {
+            Log.w(TAG, "⚠ Sensor de ritmo cardíaco no ha enviado datos")
         }
-        println("=== FIN LISTA SENSORES ===")
+
+        if (steps == 0f && stepCounterSensor != null) {
+            Log.w(TAG, "⚠ Sensor de pasos no ha enviado datos")
+        }
+
+        // Simular datos para testing si no hay sensores reales
+        if (heartRate == 0f && oxygen == 0f && stress == 0f && steps == 0f) {
+            Log.d(TAG, "Generando datos simulados para testing...")
+            simulateTestData()
+        }
+    }
+
+    private fun simulateTestData() {
+        // Solo para testing - generar datos aleatorios
+        heartRate = (60..100).random().toFloat()
+        oxygen = (95..100).random().toFloat()
+        stress = (10..80).random().toFloat()
+        steps = (100..5000).random().toFloat()
+
+        Log.d(TAG, "Datos simulados generados")
+        updateUI()
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
         event ?: return
 
-        when (event.sensor.type) {
+        val sensorName = event.sensor?.name ?: "Desconocido"
+        val sensorType = event.sensor?.type ?: -1
+
+        when (sensorType) {
             Sensor.TYPE_HEART_RATE -> {
-                if (event.values[0] > 0) {
+                if (event.values[0] > 0 && event.values[0] < 250) { // Rango válido
                     heartRate = event.values[0]
+                    Log.d(TAG, "❤️ Ritmo cardíaco: $heartRate bpm")
                     runOnUiThread {
-                        tvHeartRate.text = "Ritmo cardíaco: ${heartRate.toInt()} bpm"
+                        tvHeartRate.text = "❤️ ${heartRate.toInt()} bpm"
+                        tvHeartRate.setTextColor(getColor(android.R.color.holo_red_light))
                     }
-                    println("Ritmo cardíaco actualizado: $heartRate")
                 }
             }
+
             Sensor.TYPE_STEP_COUNTER -> {
-                steps = event.values[0]
-                runOnUiThread {
-                    tvSteps.text = "Pasos: ${steps.toInt()}"
+                val currentSteps = event.values[0]
+                if (stepOffset == 0f) {
+                    stepOffset = currentSteps // Primera lectura
                 }
-                println("Pasos actualizados: $steps")
+                steps = currentSteps - stepOffset
+                Log.d(TAG, "👟 Pasos: $steps (total: $currentSteps)")
+                runOnUiThread {
+                    tvSteps.text = "👟 ${steps.toInt()} pasos"
+                    tvSteps.setTextColor(getColor(android.R.color.holo_green_light))
+                }
             }
-            65572, 65571, 21 -> { // Sensores de SpO2
-                if (event.values[0] > 0 && event.values[0] <= 100) {
+
+            Sensor.TYPE_STEP_DETECTOR -> {
+                steps++ // Incrementar contador manual
+                Log.d(TAG, "👟 Paso detectado. Total: $steps")
+                runOnUiThread {
+                    tvSteps.text = "👟 ${steps.toInt()} pasos"
+                    tvSteps.setTextColor(getColor(android.R.color.holo_green_light))
+                }
+            }
+
+            in listOf(65572, 65571, 65574, 21, 22) -> { // Sensores SpO2
+                if (event.values[0] > 70 && event.values[0] <= 100) { // Rango válido SpO2
                     oxygen = event.values[0]
+                    Log.d(TAG, "🫁 SpO2: $oxygen% (Sensor: $sensorName)")
                     runOnUiThread {
-                        tvOxygen.text = "Oxigenación: ${oxygen.toInt()}%"
+                        tvOxygen.text = "🫁 ${oxygen.toInt()}%"
+                        tvOxygen.setTextColor(getColor(android.R.color.holo_blue_light))
                     }
-                    println("SpO2 actualizado: $oxygen (Sensor tipo: ${event.sensor.type})")
                 }
             }
-            65540, 65541, 31 -> { // Sensores de estrés/HRV
+
+            in listOf(65540, 65541, 65542, 31, 32) -> { // Sensores estrés
                 stress = event.values[0]
-                runOnUiThread {
-                    // Normalizar valor de estrés a 0-100
-                    val stressLevel = when {
-                        stress <= 25 -> "Bajo"
-                        stress <= 50 -> "Normal"
-                        stress <= 75 -> "Alto"
-                        else -> "Muy Alto"
-                    }
-                    tvStress.text = "Estrés: $stressLevel (${stress.toInt()})"
+                val stressLevel = when {
+                    stress <= 25 -> "Bajo"
+                    stress <= 50 -> "Normal"
+                    stress <= 75 -> "Alto"
+                    else -> "Muy Alto"
                 }
-                println("Estrés actualizado: $stress (Sensor tipo: ${event.sensor.type})")
+                Log.d(TAG, "😰 Estrés: $stress ($stressLevel) - Sensor: $sensorName")
+                runOnUiThread {
+                    tvStress.text = "😰 $stressLevel"
+                    tvStress.setTextColor(getColor(android.R.color.holo_orange_light))
+                }
             }
+
             else -> {
-                // Log para sensores desconocidos
-                println("Sensor desconocido - Tipo: ${event.sensor.type}, Nombre: ${event.sensor.name}, Valor: ${event.values[0]}")
+                // Log para sensores desconocidos pero potencialmente útiles
+                if (event.values[0] > 0) {
+                    Log.d(TAG, "🔍 Sensor desconocido - Tipo: $sensorType, Nombre: '$sensorName', Valor: ${event.values[0]}")
+                }
             }
         }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        println("Precisión del sensor ${sensor?.name} cambiada a: $accuracy")
+        val accuracyText = when (accuracy) {
+            SensorManager.SENSOR_STATUS_ACCURACY_HIGH -> "Alta"
+            SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM -> "Media"
+            SensorManager.SENSOR_STATUS_ACCURACY_LOW -> "Baja"
+            SensorManager.SENSOR_STATUS_UNRELIABLE -> "No confiable"
+            else -> "Desconocida"
+        }
+        Log.d(TAG, "Precisión sensor '${sensor?.name}': $accuracyText ($accuracy)")
     }
 
-    private fun isValidSensorValue(value: Float): Boolean {
-        return !value.isNaN() && !value.isInfinite() && value > 0
+    private fun updateUI() {
+        runOnUiThread {
+            tvHeartRate.text = if (heartRate > 0) "❤️ ${heartRate.toInt()} bpm" else "❤️ Esperando..."
+            tvOxygen.text = if (oxygen > 0) "🫁 ${oxygen.toInt()}%" else "🫁 Esperando..."
+            tvStress.text = if (stress > 0) {
+                val level = when {
+                    stress <= 25 -> "Bajo"
+                    stress <= 50 -> "Normal"
+                    stress <= 75 -> "Alto"
+                    else -> "Muy Alto"
+                }
+                "😰 $level"
+            } else "😰 Esperando..."
+            tvSteps.text = if (steps > 0) "👟 ${steps.toInt()} pasos" else "👟 Esperando..."
+        }
     }
 
-    private fun sendData() {
-        // Validar que hay datos para enviar
-        if (!isValidSensorValue(heartRate) && !isValidSensorValue(steps)) {
-            Toast.makeText(this, "No hay datos de sensores para enviar", Toast.LENGTH_SHORT).show()
-            return
+    private fun sendDataToServer() {
+        Log.d(TAG, "=== ENVIANDO DATOS AL SERVIDOR ===")
+
+        // Preparar datos con valores por defecto para nulos
+        val jsonData = JSONObject().apply {
+            put("heart_rate", if (heartRate > 0) heartRate.toInt() else 0)
+            put("oxygen", if (oxygen > 0) oxygen.toInt() else 0)
+            put("stress", if (stress > 0) stress.toInt() else 0)
+            put("steps", if (steps > 0) steps.toInt() else 0)
+            put("timestamp", System.currentTimeMillis())
+            put("device_model", "${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}")
+            put("app_version", "1.0")
         }
 
-        // Validar oxígeno y estrés
-        val validOxygen = isValidSensorValue(oxygen)
-        val validStress = isValidSensorValue(stress)
+        Log.d(TAG, "Datos a enviar: $jsonData")
 
         runOnUiThread {
-            if (!validOxygen) {
-                tvOxygen.text = "Oxigenación: No disponible en este dispositivo"
-            }
-            if (!validStress) {
-                tvStress.text = "Estrés: No disponible en este dispositivo"
-            }
-        }
-
-        val json = JSONObject()
-        json.put("heart_rate", if (isValidSensorValue(heartRate)) heartRate else 0)
-        json.put("steps", if (isValidSensorValue(steps)) steps else 0)
-        // Solo incluir oxígeno y estrés si son válidos
-        if (validOxygen) json.put("oxygen", oxygen)
-        if (validStress) json.put("stress", stress)
-        json.put("timestamp", System.currentTimeMillis())
-
-        // Mostrar lo que se va a enviar
-        runOnUiThread {
-            Toast.makeText(this, "Enviando datos...", Toast.LENGTH_SHORT).show()
+            btnSend.isEnabled = false
+            btnSend.text = "Enviando..."
+            Toast.makeText(this, "📤 Enviando datos...", Toast.LENGTH_SHORT).show()
         }
 
         CoroutineScope(Dispatchers.IO).launch {
-            var conn: HttpURLConnection? = null
+            var connection: HttpURLConnection? = null
+            var success = false
+            var responseMessage = ""
+
             try {
                 val url = URL("http://3.145.62.106:9000/upload/")
-                conn = url.openConnection() as HttpURLConnection
-                conn.requestMethod = "POST"
-                conn.setRequestProperty("Content-Type", "application/json; charset=utf-8")
-                conn.setRequestProperty("Accept", "application/json")
-                conn.setRequestProperty("User-Agent", "WearOS-App/1.0")
-                conn.doOutput = true
-                conn.doInput = true
-                conn.connectTimeout = 15000
-                conn.readTimeout = 15000
+                connection = url.openConnection() as HttpURLConnection
 
-                // Escribir datos
-                conn.outputStream.use { os ->
-                    val input = json.toString().toByteArray(charset("utf-8"))
-                    os.write(input, 0, input.size)
+                // Configurar conexión
+                connection.apply {
+                    requestMethod = "POST"
+                    setRequestProperty("Content-Type", "application/json; charset=utf-8")
+                    setRequestProperty("Accept", "application/json")
+                    setRequestProperty("User-Agent", "WearOS-HealthApp/1.0")
+                    setRequestProperty("X-Device-Type", "WearOS")
+                    doOutput = true
+                    doInput = true
+                    connectTimeout = 15000
+                    readTimeout = 15000
                 }
 
-                val responseCode = conn.responseCode
-                val responseMessage = conn.responseMessage
-
-                println("Respuesta del servidor: $responseCode - $responseMessage")
-                println("Datos enviados: ${json.toString()}")
-
-                withContext(Dispatchers.Main) {
-                    when (responseCode) {
-                        HttpURLConnection.HTTP_OK,
-                        HttpURLConnection.HTTP_CREATED,
-                        HttpURLConnection.HTTP_ACCEPTED -> {
-                            Toast.makeText(this@MainActivity, "✓ Datos enviados", Toast.LENGTH_SHORT).show()
-                        }
-                        else -> {
-                            Toast.makeText(this@MainActivity, "Error servidor: $responseCode", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+                // Enviar datos
+                connection.outputStream.use { outputStream ->
+                    val jsonBytes = jsonData.toString().toByteArray(Charsets.UTF_8)
+                    outputStream.write(jsonBytes)
+                    outputStream.flush()
                 }
+
+                val responseCode = connection.responseCode
+                Log.d(TAG, "Código de respuesta: $responseCode")
+
+                // Leer respuesta
+                val inputStream = if (responseCode >= 400) {
+                    connection.errorStream
+                } else {
+                    connection.inputStream
+                }
+
+                responseMessage = inputStream?.bufferedReader()?.use { it.readText() } ?: ""
+
+                success = responseCode in 200..299
+
+                Log.d(TAG, "Respuesta del servidor: $responseMessage")
 
             } catch (e: java.net.UnknownHostException) {
-                println("Error de red: No se puede conectar al servidor")
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@MainActivity, "Error: Sin conexión a Internet", Toast.LENGTH_LONG).show()
-                }
+                Log.e(TAG, "Error de red - Host desconocido: ${e.message}")
+                responseMessage = "Sin conexión a Internet"
             } catch (e: java.net.SocketTimeoutException) {
-                println("Error: Timeout de conexión")
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@MainActivity, "Error: Timeout de conexión", Toast.LENGTH_LONG).show()
-                }
+                Log.e(TAG, "Timeout de conexión: ${e.message}")
+                responseMessage = "Timeout de conexión"
+            } catch (e: java.net.ConnectException) {
+                Log.e(TAG, "Error de conexión: ${e.message}")
+                responseMessage = "No se pudo conectar al servidor"
             } catch (e: Exception) {
-                println("Error general al enviar datos: ${e.message}")
-                e.printStackTrace()
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@MainActivity, "Error: ${e.javaClass.simpleName}", Toast.LENGTH_LONG).show()
-                }
+                Log.e(TAG, "Error general al enviar datos", e)
+                responseMessage = "Error: ${e.javaClass.simpleName}"
             } finally {
                 try {
-                    conn?.disconnect()
+                    connection?.disconnect()
                 } catch (e: Exception) {
-                    println("Error al cerrar conexión: ${e.message}")
+                    Log.w(TAG, "Error al cerrar conexión: ${e.message}")
+                }
+            }
+
+            // Actualizar UI en el hilo principal
+            withContext(Dispatchers.Main) {
+                btnSend.isEnabled = true
+                btnSend.text = "Enviar"
+
+                if (success) {
+                    Toast.makeText(this@MainActivity, "✅ Datos enviados correctamente", Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "✅ Envío exitoso")
+                } else {
+                    Toast.makeText(this@MainActivity, "❌ Error: $responseMessage", Toast.LENGTH_LONG).show()
+                    Log.e(TAG, "❌ Error en envío: $responseMessage")
                 }
             }
         }
@@ -343,26 +531,27 @@ class MainActivity : Activity(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        // Re-registrar sensores cuando la app vuelve al primer plano
+        Log.d(TAG, "App resumida - Re-registrando sensores")
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.BODY_SENSORS) == PackageManager.PERMISSION_GRANTED) {
-            registerSensors()
+            // Re-registrar sensores
+            heartRateSensor?.let { sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_UI) }
+            stepCounterSensor?.let { sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_UI) }
+            oxygenSensor?.let { sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_UI) }
+            stressSensor?.let { sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_UI) }
         }
     }
 
     override fun onPause() {
         super.onPause()
-        // Desregistrar sensores para ahorrar batería
+        Log.d(TAG, "App pausada - Desregistrando sensores")
         sensorManager.unregisterListener(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        Log.d(TAG, "App destruida")
         sensorManager.unregisterListener(this)
+        handler.removeCallbacksAndMessages(null)
     }
-
-    // NOTA IMPORTANTE:
-    // Para obtener datos reales de oxígeno y estrés en Galaxy Watch 5 con Wear OS 5,
-    // es necesario usar el Samsung Health SDK y pedir permisos especiales.
-    // SensorManager no garantiza acceso a estos sensores en todos los relojes.
-    // Consulta la documentación oficial de Samsung para más detalles.
 }

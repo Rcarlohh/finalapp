@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permisos básicos para sensores -->
+    <!-- Permisos básicos para sensores y conectividad -->
     <uses-permission android:name="android.permission.BODY_SENSORS" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,14 +10,39 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- Permisos específicos de Samsung Health -->
+    <!-- Permisos adicionales para Wear OS -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
+
+    <!-- Permisos específicos de Samsung Health (opcional) -->
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
     <uses-permission android:name="com.samsung.health.permission.read" />
 
+    <!-- Permisos para sensores específicos de fabricantes -->
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+    <uses-permission android:name="com.huawei.health.permission.read" />
+
     <!-- Características del dispositivo -->
-    <uses-feature android:name="android.hardware.type.watch" />
-    <uses-feature android:name="android.hardware.sensor.heartrate" android:required="false" />
-    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.type.watch"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.heartrate"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepdetector"
+        android:required="false" />
+
+    <!-- Características adicionales para sensores avanzados -->
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -24,23 +50,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinalApp">
+        android:theme="@style/Theme.FinalApp"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="28">
 
+        <!-- Biblioteca requerida para Wear OS -->
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
 
-        <!-- Actividad principal con tema específico para Wear -->
+        <!-- Actividad principal optimizada para Wear OS -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.DeviceDefault">
+            android:theme="@android:style/Theme.DeviceDefault"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop">
+
+            <!-- Intent filter principal -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Wear OS launcher intent -->
+            <!-- Intent filter específico para Wear OS -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -48,10 +81,20 @@
             </intent-filter>
         </activity>
 
-        <!-- Metadata para Samsung Health -->
+        <!-- Metadata para Samsung Health (si está disponible) -->
         <meta-data
             android:name="com.samsung.android.health.permission.read"
-            android:value="com.samsung.health.step_count;com.samsung.health.heart_rate;com.samsung.health.oxygen_saturation" />
+            android:value="com.samsung.health.step_count;com.samsung.health.heart_rate;com.samsung.health.oxygen_saturation;com.samsung.health.stress" />
+
+        <!-- Metadata para Google Fit (si está disponible) -->
+        <meta-data
+            android:name="com.google.android.gms.fitness.HISTORY_API"
+            android:value="true" />
+
+        <!-- Configuración para evitar optimizaciones de batería -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
 
     </application>
 </manifest>
